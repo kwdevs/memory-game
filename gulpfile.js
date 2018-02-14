@@ -1,4 +1,4 @@
-var gulp = require('gulp');
+var gulp 		= require('gulp');
 var browserSync = require('browser-sync').create();
 
 gulp.task('browserSync', function() {
@@ -10,7 +10,7 @@ gulp.task('browserSync', function() {
 })
 
 gulp.task('watch', ['browserSync'], function () {
-	gulp.watch('app/*.html');
-	gulp.watch('app/js/**/*.js');
-	gulp.watch('app/css/**/*.css');
+	gulp.watch('app/*.html', browserSync.reload);
+	gulp.watch('app/js/**/*.js', browserSync.reload);
+	gulp.watch('app/css/**/*.css', browserSync.reload);
 })
