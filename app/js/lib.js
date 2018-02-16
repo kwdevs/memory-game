@@ -7,9 +7,31 @@
 */
 // Get the canvas element define context
 let canvas = document.getElementById('canvas');
-	ctx    = canvas.getContext('2d'); 
+	ctx    = canvas.getContext('2d');
 
+// Make canvas full screen
+setCanvasFullScreen();
 
+function Card (options) {
+	 
+	 this.x = 25,
+	 this.y = 25,
+	 this.width  = 125,
+	 this.height = 150,
+	 this.src = ''
+
+	 return options;
+};
+
+let singleCard = new Card();
+let testCard = new Card({
+	x: 250,
+	y: 150,
+	width: 125,
+	height: 150,
+	src: ''
+
+});
 // Create 16 squares for cards on canvas
 const cards = [
 	{
@@ -71,3 +93,12 @@ cards.forEach(card => {
 	ctx.rect(card.x, card.y, card.width, card.height);
 	ctx.stroke();
 })
+
+
+
+
+// Helper functions
+function setCanvasFullScreen () {
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+}
