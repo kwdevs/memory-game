@@ -13,6 +13,8 @@ function Engine (global) {
 	* that will be accessible throughout the entire Engine script.
 	*/
 
+	let x = x; //placeholder for readability.
+
 	/* With our vairiables setup, we can now move to the init function. This function is
 	* responsible for setting up the initial game when the page is loaded.  At the end, this
 	* function will kikoff the gameloop.
