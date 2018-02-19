@@ -10,17 +10,19 @@
 function Engine (global) {
 
 	/* Now that a new lexical environment has been created, we can declare or define variables
-	* that will be accessible throughout the entire Engine script.
+	* that will be accessible throughout the entire Engine script. Like Dom selections.
 	*/
 
-	let x = x; //placeholder for readability.
 
-	/* With our vairiables setup, we can now move to the init function. This function is
+	/* With our variables setup, we can now move to the init function. This function is
 	* responsible for setting up the initial game when the page is loaded.  At the end, this
 	* function will kikoff the gameloop.
 	*/
 
 	let init = function () {
+
+		// The first task for the init function is to shuffle our deck.
+		
 
 		gameLoop();
 	}();
