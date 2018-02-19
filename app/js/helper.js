@@ -26,7 +26,7 @@ let frontOfCardSrc = [
 * mechanism.
 */
 
-function shuffle(array) {
+let shuffleCards = function (array) {
 	
 	let index = array.length;
 	
@@ -49,3 +49,9 @@ function shuffle(array) {
 
 	return array;
 }
+
+/*This helper function is used during the creation of Card objects to pick a random card from
+a shuffled array which will be the frontOfCard value of the Card object.*/
+// function selectRandomCard () {
+// 	let randomCardFace = ;
+// }
