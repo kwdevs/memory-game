@@ -13,7 +13,6 @@ let Engine = (function(global) {
     /* Now that a new lexical environment has been created, we can declare or define variables
      * that will be accessible throughout the entire Engine script. Like Dom selections.
      */
-    let cardDeck = [];
     let doc = global.document;
     let win = global.window;
     let canvas = newElem('canvas');
@@ -42,6 +41,8 @@ let Engine = (function(global) {
 
     	reset();
 
+    	/*Define set values like time etc that need to be tracked when init is called.*/
+
 
         gameLoop();
     }
@@ -64,14 +65,7 @@ let Engine = (function(global) {
     }
     /*This function will be called by init to start a new game or be part of the winner modal*/
     function reset() {
-    	// Shuffle the face card array and store it in a new array
-        let currentFaceCardArray = [];
-        currentFaceCardArray = shuffleCards(frontOfCardSrc);
-        // Create 8 objects and attach a face card image to the key frontOfCard
-        for (i = 0; i < 8; ++i) {
-            cardDeck[i] = new Card(currentFaceCardArray[i]);
-            console.log('ran');
-        }
+    	return;
     }
 
 
