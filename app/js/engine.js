@@ -1,7 +1,7 @@
 /*
  * This is the Engine for my card matching game.  Most of the application will reside here.
  */
-
+/*jshint esversion: 6 */
 /* The Engine function serves as a wrapper to  create a new lexical environment which will
  * prevent collision with the global object. The function is immediately invoked and passed
  * the areguement 'this'. By doing so we will retain the ability to access the global object
@@ -13,24 +13,22 @@ let Engine = (function(global) {
     /* Now that a new lexical environment has been created, we can declare or define variables
      * that will be accessible throughout the entire Engine script. Like Dom selections.
      */
-    let cardDeck = new Array,
-        doc = global.document,
-        win = global.window,
-        canvas = newElem('canvas'),
-        context = doc.getContext('2d'),
+    let cardDeck = [];
+    let doc = global.document;
+    let win = global.window;
+    let canvas = newElem('canvas');
+    let context = canvas.getContext('2d');
 
-        
 
     /* The game loop function will loop continuously using requestanimationframe(). It will also
      * call update and render functions to continuously update the game board based on a users
      * action.
      */
 
-    function gameLoop () {
+    function gameLoop() {
 
         update();
         render();
-
 
         win.requestAnimationFrame(gameLoop);
     }
@@ -42,14 +40,7 @@ let Engine = (function(global) {
 
     function init() {
 
-        // Shuffle the face card array and store it in a new array
-        let currentFaceCardArray = new Array;
-        currentFaceCardArray = shuffleCards(frontOfCardSrc);
-        // Create 8 objects and attach a face card image to the key frontOfCard
-        for (i = 0; i < 8; ++i) {
-            cardDeck[i] = new Card(currentFaceCardArray[i]);
-            console.log('ran');
-        }
+    	reset();
 
 
         gameLoop();
@@ -61,7 +52,7 @@ let Engine = (function(global) {
      */
 
     function update() {
-    	return
+        return;
     }
 
     /* After the necessary data has been manipulated by our update function, we use the render
@@ -69,7 +60,18 @@ let Engine = (function(global) {
      */
 
     function render() {
-    	return
+        return;
+    }
+    /*This function will be called by init to start a new game or be part of the winner modal*/
+    function reset() {
+    	// Shuffle the face card array and store it in a new array
+        let currentFaceCardArray = [];
+        currentFaceCardArray = shuffleCards(frontOfCardSrc);
+        // Create 8 objects and attach a face card image to the key frontOfCard
+        for (i = 0; i < 8; ++i) {
+            cardDeck[i] = new Card(currentFaceCardArray[i]);
+            console.log('ran');
+        }
     }
 
 

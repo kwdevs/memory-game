@@ -1,7 +1,7 @@
+/*jshint esversion: 6 */
 /*The purpose of this file is to seperate out common use helper functions and hard coded data 
 * from the rest of the script
 */
-
 
 let frontOfCardSrc = [
 	'images/cardClubsA', 
@@ -48,10 +48,9 @@ let shuffleCards = function (array) {
 	}
 
 	return array;
-}
+};
 
-/*This helper function is used during the creation of Card objects to pick a random card from
-a shuffled array which will be the frontOfCard value of the Card object.*/
-// function selectRandomCard () {
-// 	let randomCardFace = ;
-// }
+// simplify new element creation for readability.
+function newElem (elem) {
+	return document.createElement(elem);
+}
