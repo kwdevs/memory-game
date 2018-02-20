@@ -25,7 +25,7 @@ let timer = {
 	domNode: '', //helper function will return a value to setup this node
 	currentTime: 0,//tracks current time
 	updateTimer: 0//method to update display of time
-}
+};
 
 let Card = function (frontOfCard) {
 	
