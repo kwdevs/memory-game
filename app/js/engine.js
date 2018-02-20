@@ -1,7 +1,7 @@
+/*jshint esversion: 6 */
 /*
  * This is the Engine for my card matching game.  Most of the application will reside here.
  */
-/*jshint esversion: 6 */
 /* The Engine function serves as a wrapper to  create a new lexical environment which will
  * prevent collision with the global object. The function is immediately invoked and passed
  * the areguement 'this'. By doing so we will retain the ability to access the global object
@@ -38,10 +38,11 @@ let Engine = (function(global) {
      */
 
     function init() {
+        console.log("init", 'ran');
 
-    	reset();
+        reset();
 
-    	/*Define set values like time etc that need to be tracked when init is called.*/
+        /*Define set values like time etc that need to be tracked when init is called.*/
 
 
         gameLoop();
@@ -65,9 +66,10 @@ let Engine = (function(global) {
     }
     /*This function will be called by init to start a new game or be part of the winner modal*/
     function reset() {
-    	return;
+        return;
     }
 
-
+// kick off init when the window is ready
+win.onload = function () { init(); };
 
 })(this);
