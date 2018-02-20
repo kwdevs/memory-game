@@ -69,7 +69,6 @@ function createDeck() {
     }
 
     duplicatedDeck = createDuplicateCards(cardDeck);
-    console.log("duplicatedDeck", duplicatedDeck);
     return duplicatedDeck;
 }
 
