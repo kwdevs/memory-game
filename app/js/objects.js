@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 /* The purpose of this file is to create all the objects we will need for our game. By seperating
 * this code into it's own file we maintain readability in the development process.
 */
@@ -37,4 +38,4 @@ let Card = function (frontOfCard) {
 	
 	this.backOfCard = 'images/cardBack.png',
 	this.frontOfCard = frontOfCard
-}
+};
