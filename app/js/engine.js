@@ -16,7 +16,9 @@ let Engine = (function(global) {
     let doc = global.document;
     let win = global.window;
     let canvas = newElem('canvas');
+    console.log("canvas", canvas);
     let context = canvas.getContext('2d');
+    let currentDeck = [];
 
 
     /* The game loop function will loop continuously using requestanimationframe(). It will also
@@ -65,11 +67,17 @@ let Engine = (function(global) {
         return;
     }
     /*This function will be called by init to start a new game or be part of the winner modal*/
-    function reset() {
-        return;
+    function reset(isWinner) {
+        if (isWinner === true) {
+            /*Here we will alert the user with a modal they have won
+             * and display time, star rating, move count.*/
+             return;
+        }
     }
 
-// kick off init when the window is ready
-win.onload = function () { init(); };
+    // kick off init when the window is ready
+    win.onload = function() {
+        init();
+    };
 
 })(this);
