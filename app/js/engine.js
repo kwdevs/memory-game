@@ -31,12 +31,7 @@ let Engine = (function(global) {
 
         update();
         render();
-
-        // check for win condition
-        if (gameWon === true) {
-        	reset(gameWon);
-        }
-
+        
         win.requestAnimationFrame(gameLoop);
     }
 
