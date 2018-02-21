@@ -19,7 +19,7 @@ let Engine = (function(global) {
     console.log("canvas", canvas);
     let context = canvas.getContext('2d');
     let currentDeck = [];
-
+    let gameWon = false;
 
     /* The game loop function will loop continuously using requestanimationframe(). It will also
      * call update and render functions to continuously update the game board based on a users
@@ -28,26 +28,32 @@ let Engine = (function(global) {
 
     function gameLoop() {
 
+
         update();
         render();
+
+        // check for win condition
+        if (gameWon === true) {
+        	reset(gameWon);
+        }
 
         win.requestAnimationFrame(gameLoop);
     }
 
-    /* With our variables setup, we can now move to the init function. This function is
+    /* We can now move to the init function. This function is
      * responsible for setting up the initial game when the page is loaded.  At the end, this
      * function will kickoff the gameloop.
      */
 
     function init() {
-        console.log("init", 'ran');
 
-        reset();
+        // create a new deck of cards to use.
+        currentDeck = createDeck();
 
-        /*Define set values like time etc that need to be tracked when init is called.*/
+        // call function to kick off timer loop.
 
 
-        gameLoop();
+        gameLoop(gameWon);
     }
 
 
@@ -70,9 +76,11 @@ let Engine = (function(global) {
     function reset(isWinner) {
         if (isWinner === true) {
             /*Here we will alert the user with a modal they have won
-             * and display time, star rating, move count.*/
+             * and display time, star rating, move count. Also clear out/ reset necessary
+             * fields.*/
              return;
         }
+        // call init from here when everything is reset and you're ready for a new deck/game state.
     }
 
     // kick off init when the window is ready
