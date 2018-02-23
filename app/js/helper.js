@@ -50,11 +50,6 @@ let shuffleCards = function(array) {
     return array;
 };
 
-// simplify new element creation for readability. Accepts a string as an arguement.
-function newElem(elem) {
-    return document.createElement(elem);
-}
-
 function createDeck() {
     // Shuffle the face card array and store it in a new array
     let currentFaceCardArray = [];
@@ -91,6 +86,7 @@ function createDuplicateCards(array) {
 
 }
 
+
 function resetStarRating () {
 
 }
@@ -99,3 +95,11 @@ function resetMoveCounter () {
 
 }
 
+function (isWinner) {
+
+}
+
+// simplify new element creation for readability. Accepts a string as an arguement.
+function newElem(elem) {
+    return document.createElement(elem);
+}

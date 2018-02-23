@@ -8,7 +8,7 @@
  * when necessary.
  */
 let Engine = (function(global) {
-	console.log('en')
+	console.log('en');
 	/*First of all, we need to declare variables that will be used throughout Engines' entire scope.*/
 	let win = global;
 	let doc = global.document;
