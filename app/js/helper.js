@@ -90,3 +90,12 @@ function createDuplicateCards(array) {
     return shuffledDuplicatedDeck;
 
 }
+
+function resetStarRating () {
+
+}
+
+function resetMoveCounter () {
+
+}
+
