@@ -4,22 +4,22 @@
  */
 
 let frontOfCardSrc = [
-    'images/cardClubsA',
-    'images/cardClubsJ',
-    'images/cardClubsK',
-    'images/cardClubsQ',
-    'images/cardDiamondsA',
-    'images/cardDiamondsJ',
-    'images/cardDiamondsK',
-    'images/cardDiamondsQ',
-    'images/cardHeartsA',
-    'images/cardHeartsJ',
-    'images/cardHeartsK',
-    'images/cardHeartsQ',
-    'images/cardSpadesA',
-    'images/cardSpadesJ',
-    'images/cardSpadesK',
-    'images/cardSpadesQ',
+    'images/cardClubsA.png',
+    'images/cardClubsJ.png',
+    'images/cardClubsK.png',
+    'images/cardClubsQ.png',
+    'images/cardDiamondsA.png',
+    'images/cardDiamondsJ.png',
+    'images/cardDiamondsK.png',
+    'images/cardDiamondsQ.png',
+    'images/cardHeartsA'.png,
+    'images/cardHeartsJ'.png,
+    'images/cardHeartsK'.png,
+    'images/cardHeartsQ'.png,
+    'images/cardSpadesA'.png,
+    'images/cardSpadesJ'.png,
+    'images/cardSpadesK'.png,
+    'images/cardSpadesQ'.png,
 ];
 
 /* Through some research, I've decided to use the Fisher Yates Algorithm as my shuffling 
@@ -63,7 +63,8 @@ function createDeck() {
         cardDeck[i] = new Card(currentFaceCardArray[i]);
     }
 
-    duplicatedDeck = createDuplicateCards(cardDeck);
+    // duplicatedDeck = createDuplicateCards(cardDeck);
+    console.log("duplicatedDeck", duplicatedDeck);
     return duplicatedDeck;
 }
 
@@ -95,11 +96,38 @@ function resetMoveCounter () {
 
 }
 
-function (isWinner) {
+function resetTimer () {
 
 }
 
+function createGameBoard (cardDeck) {
+
+	
+	const containerDiv = newElem('div');
+	containerDiv.id = 'container';
+	// document.body.insertAdjacentElement('afterbegin', containerDiv);
+	
+	/*This for loop creates all the IMG tags */
+	for (var i = 0; i <= cardDeck.length - 1; ++i) {
+		const imgElem = document.createElement('img');
+		// imgElem.src = cardDeck[i].frontOfCard; 
+
+		containerDiv.appendChild(imgElem);
+	}
+
+	// containerDiv.addEventListener('click', respondToCardClick);
+
+	document.body.insertAdjacentElement('afterbegin', containerDiv);
+}
 // simplify new element creation for readability. Accepts a string as an arguement.
 function newElem(elem) {
     return document.createElement(elem);
+}
+
+/*Event listeners start here*/
+
+function respondToCardClick () {
+
+console.log("card clicked");
+
 }
