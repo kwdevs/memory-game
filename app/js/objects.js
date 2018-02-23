@@ -28,7 +28,7 @@ let timer = {
 	updateTimer: 0//method to update display of time
 };
 
-let Card = function (frontOfCard) {
+let Card = function (frontOfCard, index) {
 	
 	this.width = 140,
 	this.height = 190,
@@ -38,4 +38,5 @@ let Card = function (frontOfCard) {
 	
 	this.backOfCard = 'images/cardBack.png',
 	this.frontOfCard = frontOfCard
+	
 };

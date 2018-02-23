@@ -26,6 +26,7 @@ let Engine = (function(global) {
 
         let checkForElem = doc.getElementById('container');
         currentDeck = createDeck();
+        console.log("currentDeck", currentDeck);
         createGameBoard(currentDeck);
 
         winCondition = false;

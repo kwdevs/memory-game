@@ -58,7 +58,6 @@ function createDeck() {
 
     currentFaceCardArray = shuffleCards(frontOfCardSrc);
 
-
     // Create 8 objects and attach a face card image to the key frontOfCard
     for (i = 0; i < 8; ++i) {
         cardDeck[i] = new Card(currentFaceCardArray[i]);
@@ -66,6 +65,7 @@ function createDeck() {
 
     duplicatedDeck = createDuplicateCards(cardDeck);
 
+    
     return duplicatedDeck;
 }
 
@@ -116,7 +116,7 @@ function createGameBoard (cardDeck) {
 		containerDiv.appendChild(imgElem);
 	}
 
-	containerDiv.addEventListener('click', respondToCardClick);
+	containerDiv.addEventListener('click', captureCardClickTarget);
 
 	document.body.insertAdjacentElement('afterbegin', containerDiv);
 }
@@ -127,7 +127,7 @@ function newElem(elem) {
 
 /*Event listeners start here*/
 
-function respondToCardClick (event) {
+function captureCardClickTarget (event) {
 
 console.log("card clicked", event.target);
 
