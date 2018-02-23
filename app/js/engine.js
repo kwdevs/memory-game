@@ -8,66 +8,61 @@
  * when necessary.
  */
 let Engine = (function(global) {
-	console.log('en');
-	/*First of all, we need to declare variables that will be used throughout Engines' entire scope.*/
-	let win = global;
-	let doc = global.document;
-	let currentDeck = [];
-	let winCondition = false;
 
-	function gameLoop (winCondition) {
+    /*First of all, we need to declare variables that will be used throughout Engines' entire scope.*/
+    let win = global;
+    let doc = global.document;
+    let currentDeck = [];
+    let winCondition = false;
 
-		update(winCondition);
-		draw();
+    // function gameLoop (winCondition) {
 
-	}	
+    // 	update(winCondition);
+    // 	draw();
 
-	function init (winCondition) {
+    // }	
 
-		let checkForElem = doc.getElementById('container');
-			
-			if (checkForElem === null) {
-				let container = doc.newElem('div');	
-					container.id = 'container';
-					doc.appendChild(container);	
-					console.log('i exe');	
-			}
+    function init(winCondition) {
 
-		winCondition = false;
-		currentDeck = createDeck();
-		starRating  = resetStarRating();
-		moveCounter = resetMoveCounter();
-		timer = resetTimer();
+        // let checkForElem = doc.getElementById('container');
+        // currentDeck = createDeck();
+        // createGameBoard(currentDeck);
 
-		gameLoop(winCondition);
-	}
+        winCondition = false;
+        starRating = resetStarRating();
+        moveCounter = resetMoveCounter();
+        timer = resetTimer();
 
-	function update (isWinner) {
-		
-		if (isWinner) {
-			reset();
-			return;
-		}
+        // gameLoop(winCondition);
+    }
+
+    function update(isWinner) {
+
+        if (isWinner) {
+            reset();
+            return;
+        }
 
 
-	}
+    }
 
-	function draw () {
+    function draw() {
 
 
-	}
+    }
 
-	function reset () {
+    function reset() {
 
 
 
-		// calls init at the end
-		init();
-	}
+        // calls init at the end
+        init();
+    }
 
     // kick off init when the window is ready
     win.onload = function() {
-        init(winCondition);
+
+        init();
     };
 
 })(this);
