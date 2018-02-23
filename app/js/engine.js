@@ -8,8 +8,11 @@
  * when necessary.
  */
 let Engine = (function(global) {
-
-
+	/*First of all, we need to declare variables that will be used throughout Engines' entire scope.*/
+	let win = global;
+	let doc = global.document;
+	let currentDeck = [];
+	let winCondition = false;
     // kick off init when the window is ready
     win.onload = function() {
         init();
