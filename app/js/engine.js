@@ -24,9 +24,9 @@ let Engine = (function(global) {
 
     function init(winCondition) {
 
-        // let checkForElem = doc.getElementById('container');
-        // currentDeck = createDeck();
-        // createGameBoard(currentDeck);
+        let checkForElem = doc.getElementById('container');
+        currentDeck = createDeck();
+        createGameBoard(currentDeck);
 
         winCondition = false;
         starRating = resetStarRating();

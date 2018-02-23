@@ -12,14 +12,14 @@ let frontOfCardSrc = [
     'images/cardDiamondsJ.png',
     'images/cardDiamondsK.png',
     'images/cardDiamondsQ.png',
-    'images/cardHeartsA'.png,
-    'images/cardHeartsJ'.png,
-    'images/cardHeartsK'.png,
-    'images/cardHeartsQ'.png,
-    'images/cardSpadesA'.png,
-    'images/cardSpadesJ'.png,
-    'images/cardSpadesK'.png,
-    'images/cardSpadesQ'.png,
+    'images/cardHeartsA.png',
+    'images/cardHeartsJ.png',
+    'images/cardHeartsK.png',
+    'images/cardHeartsQ.png',
+    'images/cardSpadesA.png',
+    'images/cardSpadesJ.png',
+    'images/cardSpadesK.png',
+    'images/cardSpadesQ.png',
 ];
 
 /* Through some research, I've decided to use the Fisher Yates Algorithm as my shuffling 
@@ -58,13 +58,14 @@ function createDeck() {
 
     currentFaceCardArray = shuffleCards(frontOfCardSrc);
 
+
     // Create 8 objects and attach a face card image to the key frontOfCard
     for (i = 0; i < 8; ++i) {
         cardDeck[i] = new Card(currentFaceCardArray[i]);
     }
 
-    // duplicatedDeck = createDuplicateCards(cardDeck);
-    console.log("duplicatedDeck", duplicatedDeck);
+    duplicatedDeck = createDuplicateCards(cardDeck);
+
     return duplicatedDeck;
 }
 
@@ -109,13 +110,13 @@ function createGameBoard (cardDeck) {
 	
 	/*This for loop creates all the IMG tags */
 	for (var i = 0; i <= cardDeck.length - 1; ++i) {
-		const imgElem = document.createElement('img');
-		// imgElem.src = cardDeck[i].frontOfCard; 
+		const imgElem = newElem('img');
+		imgElem.src = cardDeck[i].frontOfCard; 
 
 		containerDiv.appendChild(imgElem);
 	}
 
-	// containerDiv.addEventListener('click', respondToCardClick);
+	containerDiv.addEventListener('click', respondToCardClick);
 
 	document.body.insertAdjacentElement('afterbegin', containerDiv);
 }
@@ -126,8 +127,8 @@ function newElem(elem) {
 
 /*Event listeners start here*/
 
-function respondToCardClick () {
+function respondToCardClick (event) {
 
-console.log("card clicked");
+console.log("card clicked", event.target);
 
 }
