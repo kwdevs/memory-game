@@ -65,7 +65,7 @@ function createDeck() {
 
     duplicatedDeck = createDuplicateCards(cardDeck);
 
-    
+
     return duplicatedDeck;
 }
 
