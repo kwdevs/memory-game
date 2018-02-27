@@ -25,7 +25,7 @@ const fAArr = [
  * mechanism.
  */
 
-const shuffleCards = function(array) {
+const shuffleIcons = function(array) {
 
     let index = array.length;
 
