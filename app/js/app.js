@@ -27,6 +27,7 @@ const iconDeck = {
 
     // this is a fisher yates shuffle implementation
     shuffleIcons: function(array) {
+        // console.log("array", array);
 
         let index = array.length;
 
@@ -50,37 +51,54 @@ const iconDeck = {
         return array;
     },
 
+    selectIcon: function() {
+        return;
+    },
+
+    createIconObj: function(singleIcon) {
+
+        let icon = {
+
+            fillColor: '#EF550FFF',
+
+            dimensions: {
+                x: 150,
+                y: 150
+            },
+
+            state: {
+                faceUp: false,
+                faceDown: true
+            },
+
+            tileIcon: singleIcon
+
+        };
+
+        return icon;
+    },
+
+    createDeck: function (iconArr) {
+    	
+    	let newDeck = [];
+
+    	let shuffledDeck = this.shuffleIcons(iconArr);
+    	
+    	// loop to create icon objects setting tileIcon to iconArr value
+    	for (var elem of iconArr) {
+    		let tempIconObj = this.createIconObj(elem);
+    		newDeck.push(tempIconObj);
+    	}
+    	
+    	return newDeck;
+    }
+
 };
-
-// setup tile factory
-function createIconObj(singleIcon, matchingId) {
-    let icon = {
-
-        fillColor: '#EF550FFF',
-
-        dimensions: {
-            x: 150,
-            y: 150
-        },
-
-        state: {
-            faceUp: false,
-            faceDown: true
-        },
-
-        tileIcon: singleIcon,
-
-        matchingId: matchingId
-
-    };
-
-    return icon;
-}
 
 // setup moveCount object
 const moveCount = {
 
-	moveCountHTML: '',
+    moveCountHTML: '',
 
     currentMoveCount: 0,
 
@@ -95,7 +113,7 @@ const moveCount = {
 // setup timer object
 const timer = {
 
-	timerHTML: '',
+    timerHTML: '',
 
     start: function() {
         // kicks off timer when first icon is clicked.
@@ -133,35 +151,11 @@ const starRating = {
 // setup resetButton object
 const resetButton = {
 
-	buttonHTML: '<i class="fas fa-redo"></i>',
+    buttonHTML: '<i class="fas fa-redo"></i>',
 
-	reset: function () {
-		// call init() or w/e game engine kicks off new game on button click.
-	}
+    reset: function() {
+        // call init() or w/e game engine kicks off new game on button click.
+    }
 };
 
-
-
-
-
-
-
-
-// this is the newTile function factory
-// const newTile = ( {color, tileIcon, matchingId } ) => ({
-
-// 	color,
-// 	tileIcon,
-// 	matchingId,
-
-// 	state: {
-// 		faceUp : false,
-// 		faceDown : true
-// 	},
-
-// 	dimensions: {
-// 		x : 150,
-// 		y : 150
-// 	}
-
-// });
+let newDeck = iconDeck.createDeck(iconDeck.fAArr);
