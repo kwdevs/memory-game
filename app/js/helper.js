@@ -22,3 +22,23 @@ function setCanvasWidth() {
 function setCanvasHeight() {
     return window.innerHeight;
 }
+
+// function to draw 16 tiles in a 4x4 grid
+function drawTiles(ctx, arrOfObj) {
+
+	let x = 100;
+	let y = 100;
+
+	for (let obj of arrOfObj) {
+		  obj.drawRect(ctx, x, y, obj.dimensions.x, obj.dimensions.y);
+	    
+	    // ctx.drawRect(x, y, arrOfObj.width, arrOfObj.height);
+
+	    x += 200;
+	    
+	    if (x >= 800) {
+	    	x = 100;
+	    	y += 200;
+	    }
+	}
+}
