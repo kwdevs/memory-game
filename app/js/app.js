@@ -71,8 +71,11 @@ const iconDeck = {
                 faceDown: true
             },
 
-            tileIcon: singleIcon
+            tileIcon: singleIcon,
 
+            drawRect: function(ctx) {
+            	ctx.fillRect(100, 100, 100, 100);
+            }
         };
 
         return icon;
@@ -158,4 +161,4 @@ const resetButton = {
     }
 };
 
-let newDeck = iconDeck.createDeck(iconDeck.fAArr);
+let newDeck = iconDeck.createDeck(iconDeck.fAArr); 
