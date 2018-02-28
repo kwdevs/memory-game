@@ -73,8 +73,8 @@ const iconDeck = {
 
             tileIcon: singleIcon,
 
-            drawRect: function(ctx) {
-            	ctx.fillRect(100, 100, 100, 100);
+            drawRect: function(ctx, x, y, w, h) {
+            	ctx.fillRect(x, y, w, h);
             }
         };
 
@@ -160,5 +160,3 @@ const resetButton = {
         // call init() or w/e game engine kicks off new game on button click.
     }
 };
-
-let newDeck = iconDeck.createDeck(iconDeck.fAArr); 
