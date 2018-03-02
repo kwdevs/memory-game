@@ -18,7 +18,7 @@ const gameBoard = {
 	},
 	//remove table
 	removeGameBoard: function() {
-
+		// function to be called when starting a new game
 	} 
 };
 
@@ -73,6 +73,7 @@ const iconDeck = {
     },
 
     selectIcon: function() {
+    	// function that will add an icon after shuffle when creating new game
         return;
     },
 
@@ -94,9 +95,6 @@ const iconDeck = {
 
             tileIcon: singleIcon,
 
-            drawRect: function(ctx, x, y, w, h) {
-            	ctx.fillRect(x, y, w, h);
-            }
         };
 
         return icon;
@@ -129,7 +127,7 @@ const moveCount = {
     updateMoveCount: function() {
         // callback to event listener on canvas to increment currentMoveCount
     },
-    update: function() {
+    updateDOM: function() {
         // update the DOM
     }
 };
@@ -149,7 +147,12 @@ const timer = {
     currentTime: function() {
         return Date.now;
     },
-    update: function() {
+
+    updateTimer: function() {
+    	// func to update timer value.
+    },
+
+    updateDOM: function() {
         // update the DOM
     }
 };
@@ -167,7 +170,7 @@ const starRating = {
         // logic to remove a star
     },
 
-    update: function() {
+    updateDOM: function() {
         // update the DOM
     }
 };
