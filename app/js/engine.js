@@ -10,17 +10,20 @@ let Engine = (function(global) {
 	// Variables to be used throughout Engines entire scope
 	const win = global;
 	const doc = global.document;
+
+	let body = doc.getElementById('body');
 	
 	// this variable hold are array of objs that handle everything to do with the deck.
 	let newDeck = [];
+	let newGameBoard = '';
 
 	// init is a function used to set the game up
 	function init() {
 		// here we set the newDeck variable to a freshly shuffled arr of icon objs
 		newDeck = iconDeck.createDeck(iconDeck.fAArr);
-		
-
-		//call function create tiles to draw 4x4 tiles on screen
+		//this call builds the table with innerhtml of cells set to a shuffled icon
+		newGameBoard = gameBoard.createGameBoard(newDeck);
+		body.appendChild(newGameBoard);
 		
 	}
 
