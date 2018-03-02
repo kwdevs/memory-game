@@ -1,25 +1,31 @@
 /*jshint esversion: 6 */
 
 /*This file will contain object literals, function factories to create objects, and their methods*/
+
+
 // setup gameboard object
 const gameBoard = {
-	// create table
-	createGameBoard: function() {
-		
-		let section = document.getElementById('gameBoard');
-		let table = document.createElement('table');
-		let tableBody = document.createElement('tbody');
 
-		// use a nested for loop to create cells, gameboard is 4x4
-		for (let row = 0; row < 4; ++row) {
-			let newRow = document.createElement('tr');
+    createGameBoard: function(deck) {
+    	
+    	let currentDeck = deck;
+    	console.log("currentDeck", currentDeck);
+        let section = document.createElement('section');
+        
+        section.setAttribute('id', 'gameBoard');
 
-		}
-	},
-	//remove table
-	removeGameBoard: function() {
-		// function to be called when starting a new game
-	} 
+        let row = 4;
+        let col = 4;
+
+        let newTable = createTable(row, col, currentDeck);
+
+        return newTable;
+    },
+
+    //remove table
+    removeGameBoard: function() {
+        // function to be called when starting a new game
+    }
 };
 
 
@@ -73,7 +79,7 @@ const iconDeck = {
     },
 
     selectIcon: function() {
-    	// function that will add an icon after shuffle when creating new game
+        // function that will add an icon after shuffle when creating new game
         return;
     },
 
@@ -100,19 +106,19 @@ const iconDeck = {
         return icon;
     },
 
-    createDeck: function (iconArr) {
-    	
-    	let newDeck = [];
+    createDeck: function(iconArr) {
 
-    	let shuffledDeck = this.shuffleIcons(iconArr);
-    	
-    	// loop to create icon objects setting tileIcon to iconArr value
-    	for (var elem of iconArr) {
-    		let tempIconObj = this.createIconObj(elem);
-    		newDeck.push(tempIconObj);
-    	}
-    	
-    	return newDeck;
+        let newDeck = [];
+
+        let shuffledDeck = this.shuffleIcons(iconArr);
+
+        // loop to create icon objects setting tileIcon to iconArr value
+        for (var elem of iconArr) {
+            let tempIconObj = this.createIconObj(elem);
+            newDeck.push(tempIconObj);
+        }
+
+        return newDeck;
     }
 
 };
@@ -149,7 +155,7 @@ const timer = {
     },
 
     updateTimer: function() {
-    	// func to update timer value.
+        // func to update timer value.
     },
 
     updateDOM: function() {
