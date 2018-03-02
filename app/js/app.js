@@ -1,6 +1,27 @@
 /*jshint esversion: 6 */
 
 /*This file will contain object literals, function factories to create objects, and their methods*/
+// setup gameboard object
+const gameBoard = {
+	// create table
+	createGameBoard: function() {
+		
+		let section = document.getElementById('gameBoard');
+		let table = document.createElement('table');
+		let tableBody = document.createElement('tbody');
+
+		// use a nested for loop to create cells, gameboard is 4x4
+		for (let row = 0; row < 4; ++row) {
+			let newRow = document.createElement('tr');
+
+		}
+	},
+	//remove table
+	removeGameBoard: function() {
+
+	} 
+};
+
 
 // setup cardDeck object.
 const iconDeck = {
