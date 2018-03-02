@@ -9,14 +9,7 @@ let Engine = (function(global) {
 
 	// Variables to be used throughout Engines entire scope
 	const win = global;
-
-	// const canvas = getCanvas();
-	// make canvas full screen to any device
-	// canvas.width = setCanvasWidth();
-	// canvas.height = setCanvasHeight();
-
-	// let ctx = setCanvasContext(canvas);
-	// newDeck[0].drawRect(ctx)
+	const doc = global.document;
 	
 	// this variable hold are array of objs that handle everything to do with the deck.
 	let newDeck = [];
@@ -28,7 +21,7 @@ let Engine = (function(global) {
 		
 
 		//call function create tiles to draw 4x4 tiles on screen
-		// drawTiles(ctx, newDeck);
+		
 	}
 
 
