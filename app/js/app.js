@@ -34,22 +34,22 @@ const iconDeck = {
 
     // this is the html for fontawesome icons
     fAArr: [
-        '<i class="far fa-bomb"></i>',
-        '<i class="far fa-bomb"></i>',
-        '<i class="far fa-beer"></i>',
-        '<i class="far fa-beer"></i>',
-        '<i class="far fa-bug"></i>',
-        '<i class="far fa-bug"></i>',
-        '<i class="far fa-fighter-jet"></i>',
-        '<i class="far fa-fighter-jet"></i>',
-        '<i class="far fa-camera-retro"></i>',
-        '<i class="far fa-camera-retro"></i>',
-        '<i class="far fa-fire"></i>',
-        '<i class="far fa-fire"></i>',
-        '<i class="far fa-jack-o-lantern"></i>',
-        '<i class="far fa-jack-o-lantern"></i>',
-        '<i class="far fa-space-shuttle"></i>',
-        '<i class="far fa-space-shuttle"></i>'
+        '<i class="fas fa-bomb fa-3x"></i>',
+        '<i class="fas fa-bomb fa-3x"></i>',
+        '<i class="fas fa-beer fa-3x"></i>',
+        '<i class="fas fa-beer fa-3x"></i>',
+        '<i class="fas fa-bug fa-3x"></i>',
+        '<i class="fas fa-bug fa-3x"></i>',
+        '<i class="fas fa-fighter-jet fa-3x"></i>',
+        '<i class="fas fa-fighter-jet fa-3x"></i>',
+        '<i class="fas fa-camera-retro fa-3x"></i>',
+        '<i class="fas fa-camera-retro fa-3x"></i>',
+        '<i class="fas fa-fire fa-3x"></i>',
+        '<i class="fas fa-fire fa-3x"></i>',
+        '<i class="fas fa-trophy fa-3x"></i>',
+        '<i class="fas fa-trophy fa-3x"></i>',
+        '<i class="fas fa-space-shuttle fa-3x"></i>',
+        '<i class="fas fa-space-shuttle fa-3x"></i>'
     ],
 
     // this is a fisher yates shuffle implementation
