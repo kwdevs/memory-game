@@ -2,7 +2,7 @@ body {
 	margin: 0; 
 }
 
-canvas {
-	border : 1px black solid;
-	background-color: teal;
+table, tbody {
+	width: 600px;
+	height: 800px;
 }
