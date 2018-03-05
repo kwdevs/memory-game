@@ -12,6 +12,8 @@ let Engine = (function(global) {
 	const doc = global.document;
 
 	let body = doc.getElementById('body');
+	let header = doc.getElementById('header');
+	let gameBoardHTML = doc.getElementById('gameboard');
 	
 	// this variable hold are array of objs that handle everything to do with the deck.
 	let newDeck = [];
@@ -21,11 +23,17 @@ let Engine = (function(global) {
 	function init() {
 		// here we set the newDeck variable to a freshly shuffled arr of icon objs
 		newDeck = iconDeck.createDeck(iconDeck.fAArr);
-		console.log("newDeck", newDeck);
 		//this call builds the table with innerhtml of cells set to a shuffled icon
 		newGameBoard = gameBoard.createGameBoard(newDeck);
-		body.appendChild(newGameBoard);
+		// add the table to the section element
+		gameBoardHTML.append(newGameBoard);
+		// add the timer to DOM
+		// add the moveCounter to DOM
+		// add the starRating to DOM
 		
+		// add event listeners
+		addListenders();
+		// call gameloop
 	}
 
 
