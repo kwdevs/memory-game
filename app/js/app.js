@@ -9,7 +9,6 @@ const gameBoard = {
     createGameBoard: function(deck) {
     	
     	let currentDeck = deck;
-    	console.log("currentDeck", currentDeck);
         let section = document.createElement('section');
         
         section.setAttribute('id', 'gameBoard');
