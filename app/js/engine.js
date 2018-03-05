@@ -21,6 +21,7 @@ let Engine = (function(global) {
 	function init() {
 		// here we set the newDeck variable to a freshly shuffled arr of icon objs
 		newDeck = iconDeck.createDeck(iconDeck.fAArr);
+		console.log("newDeck", newDeck);
 		//this call builds the table with innerhtml of cells set to a shuffled icon
 		newGameBoard = gameBoard.createGameBoard(newDeck);
 		body.appendChild(newGameBoard);
