@@ -18,3 +18,14 @@ td {
 	background-color: #E85D16FF;
 	text-align: center;
 }
+
+
+/*Used for testing card flipping*/
+
+.showCard {
+	display: inline;
+}
+
+.hideCard {
+	display: none;
+}
