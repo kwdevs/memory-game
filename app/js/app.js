@@ -2,27 +2,54 @@
 
 /*This file will contain object literals, function factories to create objects, and their methods*/
 
+
+// setup gameboard object
+const gameBoard = {
+
+    createGameBoard: function(deck) {
+    	
+    	let currentDeck = deck;
+    	console.log("currentDeck", currentDeck);
+        let section = document.createElement('section');
+        
+        section.setAttribute('id', 'gameBoard');
+
+        let row = 4;
+        let col = 4;
+
+        let newTable = createTable(row, col, currentDeck);
+
+        return newTable;
+    },
+
+    //remove table
+    removeGameBoard: function() {
+        // function to be called when starting a new game
+    }
+};
+
+
 // setup cardDeck object.
 const iconDeck = {
 
     // this is the html for fontawesome icons
     fAArr: [
-        '<i class="far fa-bomb"></i>',
-        '<i class="far fa-bomb"></i>',
-        '<i class="far fa-beer"></i>',
-        '<i class="far fa-beer"></i>',
-        '<i class="far fa-bug"></i>',
-        '<i class="far fa-bug"></i>',
-        '<i class="far fa-fighter-jet"></i>',
-        '<i class="far fa-fighter-jet"></i>',
-        '<i class="far fa-camera-retro"></i>',
-        '<i class="far fa-camera-retro"></i>',
-        '<i class="far fa-fire"></i>',
-        '<i class="far fa-fire"></i>',
-        '<i class="far fa-jack-o-lantern"></i>',
-        '<i class="far fa-jack-o-lantern"></i>',
-        '<i class="far fa-space-shuttle"></i>',
-        '<i class="far fa-space-shuttle"></i>'
+        '<i class="fas fa-bomb fa-3x"></i>',
+        '<i class="fas fa-bomb fa-3x"></i>',
+        '<i class="fas fa-beer fa-3x"></i>',
+        '<i class="fas fa-beer fa-3x"></i>',
+        '<i class="fas fa-bug fa-3x"></i>',
+        '<i class="fas fa-bug fa-3x"></i>',
+        '<i class="fas fa-fighter-jet fa-3x"></i>',
+        '<i class="fas fa-fighter-jet fa-3x"></i>',
+        '<i class="fas fa-camera-retro fa-3x"></i>',
+        '<i class="fas fa-camera-retro fa-3x"></i>',
+        '<i class="fas fa-fire fa-3x"></i>',
+        '<i class="fas fa-fire fa-3x"></i>',
+        '<i class="fas fa-trophy fa-3x"></i>',
+        '<i class="fas fa-trophy fa-3x"></i>',
+        '<i class="fas fa-space-shuttle fa-3x"></i>',
+        '<i class="fas fa-space-shuttle fa-3x"></i>'
     ],
 
     // this is a fisher yates shuffle implementation
@@ -52,6 +79,7 @@ const iconDeck = {
     },
 
     selectIcon: function() {
+        // function that will add an icon after shuffle when creating new game
         return;
     },
 
@@ -71,26 +99,26 @@ const iconDeck = {
                 faceDown: true
             },
 
-            tileIcon: singleIcon
+            tileIcon: singleIcon,
 
         };
 
         return icon;
     },
 
-    createDeck: function (iconArr) {
-    	
-    	let newDeck = [];
+    createDeck: function(iconArr) {
 
-    	let shuffledDeck = this.shuffleIcons(iconArr);
-    	
-    	// loop to create icon objects setting tileIcon to iconArr value
-    	for (var elem of iconArr) {
-    		let tempIconObj = this.createIconObj(elem);
-    		newDeck.push(tempIconObj);
-    	}
-    	
-    	return newDeck;
+        let newDeck = [];
+
+        let shuffledDeck = this.shuffleIcons(iconArr);
+
+        // loop to create icon objects setting tileIcon to iconArr value
+        for (var elem of iconArr) {
+            let tempIconObj = this.createIconObj(elem);
+            newDeck.push(tempIconObj);
+        }
+
+        return newDeck;
     }
 
 };
@@ -105,7 +133,7 @@ const moveCount = {
     updateMoveCount: function() {
         // callback to event listener on canvas to increment currentMoveCount
     },
-    update: function() {
+    updateDOM: function() {
         // update the DOM
     }
 };
@@ -125,7 +153,12 @@ const timer = {
     currentTime: function() {
         return Date.now;
     },
-    update: function() {
+
+    updateTimer: function() {
+        // func to update timer value.
+    },
+
+    updateDOM: function() {
         // update the DOM
     }
 };
@@ -143,7 +176,7 @@ const starRating = {
         // logic to remove a star
     },
 
-    update: function() {
+    updateDOM: function() {
         // update the DOM
     }
 };
@@ -157,5 +190,3 @@ const resetButton = {
         // call init() or w/e game engine kicks off new game on button click.
     }
 };
-
-let newDeck = iconDeck.createDeck(iconDeck.fAArr);

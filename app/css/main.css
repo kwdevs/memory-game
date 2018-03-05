@@ -1,0 +1,8 @@
+body {
+	margin: 0; 
+}
+
+table, tbody {
+	width: 500px;
+	height: 500px;
+}
