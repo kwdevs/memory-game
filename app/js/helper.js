@@ -33,8 +33,10 @@ function createTable(row, col, deck) {
         	// I wanted this outside the for loop but it would only append to last td created.
         	let wrapperDiv = document.createElement('div');
         	wrapperDiv.innerHTML = currentDeck[index].tileIcon;
+        	// add id
         	wrapperDiv.id = index;
-            
+            // add display none by default
+            wrapperDiv.style.display = 'none';
             let newCell = newRow.insertCell(cell);
             newCell.appendChild(wrapperDiv);
             
