@@ -3,6 +3,18 @@ body {
 }
 
 table, tbody {
-	width: 500px;
+	background-color: #000;
 	height: 500px;
+	width: 500px;
+}
+
+tbody, td {
+	border: 1px solid black;
+	height: 125px;
+	width: 125px;
+}
+
+td {
+	background-color: #E85D16FF;
+	text-align: center;
 }
