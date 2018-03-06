@@ -32,10 +32,10 @@ let Engine = (function(global) {
 		// add the starRating to DOM
 		
 		// add event listeners
-		// this is our listener to expose an icon when clicked.
-		doc.getElementById('table').addEventListener('click', flipTile);
 		// this listener keeps a running move count and updates MoveCount.currentMoveCount as a number
 		doc.getElementById('table').addEventListener('click', incrementMoveCount);
+		// this is our listener to expose an icon when clicked.
+		doc.getElementById('table').addEventListener('click', flipTile);
 		// call gameloop
 	}
 
