@@ -7,10 +7,10 @@
 const gameBoard = {
 
     createGameBoard: function(deck) {
-    	
-    	let currentDeck = deck;
+
+        let currentDeck = deck;
         let section = document.createElement('section');
-        
+
         section.setAttribute('id', 'gameBoard');
 
         let row = 4;
@@ -128,10 +128,28 @@ const moveCount = {
     moveCountHTML: '',
 
     currentMoveCount: 0,
+    
 
-    updateMoveCount: function() {
-        // callback to event listener on canvas to increment currentMoveCount
+    updateMoveCount: function(event) {
+        
+        // check that the tile that was clicked is not already clicked. Adding this check
+        // will prevent incrementation of the currentMoveCount property being incremented when
+        // an already shown icon is clicked again
+        let checkIfIconIsShowing = event.target.firstChild.classList.contains('showCard');
+        
+        let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');
+        
+
+        if (checkIfIconIsShowing) {
+        	console.log('ran');
+            return;
+        }
+        if (checkIfIconIsHidden) {
+            console.log('ran');
+            return moveCount.currentMoveCount += 1;
+        }  
     },
+
     updateDOM: function() {
         // update the DOM
     }
