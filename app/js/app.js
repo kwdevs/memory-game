@@ -7,10 +7,10 @@
 const gameBoard = {
 
     createGameBoard: function(deck) {
-    	
-    	let currentDeck = deck;
+
+        let currentDeck = deck;
         let section = document.createElement('section');
-        
+
         section.setAttribute('id', 'gameBoard');
 
         let row = 4;
@@ -125,22 +125,38 @@ const iconDeck = {
 // setup moveCount object
 const moveCount = {
 
-    moveCountHTML: '',
+    // moveCountHTML: document.createElement('div'),
 
     currentMoveCount: 0,
+    
 
-    updateMoveCount: function() {
-        // callback to event listener on canvas to increment currentMoveCount
+    updateMoveCount: function(event) {
+        
+        // check that the tile that was clicked is not already clicked. Adding this check
+        // will prevent incrementation of the currentMoveCount property being incremented when
+        // an already shown icon is clicked again
+        let checkIfIconIsShowing = event.target.firstChild.classList.contains('showCard');
+        
+        let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');
+        
+
+        if (checkIfIconIsShowing) {
+            return;
+        }
+        if (checkIfIconIsHidden) {
+            moveCount.currentMoveCount += 1;
+        }  
     },
-    updateDOM: function() {
-        // update the DOM
+
+    updateDOM: function(element) {
+        element.innerText = moveCount.currentMoveCount;
     }
 };
 
 // setup timer object
 const timer = {
 
-    timerHTML: '',
+    runningTime: 0,
 
     start: function() {
         // kicks off timer when first icon is clicked.
@@ -157,8 +173,8 @@ const timer = {
         // func to update timer value.
     },
 
-    updateDOM: function() {
-        // update the DOM
+    updateDOM: function(element) {
+        element.innerText = timer.runningTime;
     }
 };
 
@@ -175,8 +191,9 @@ const starRating = {
         // logic to remove a star
     },
 
-    updateDOM: function() {
-        // update the DOM
+    updateDOM: function(element) {
+        console.log("element", element);
+        element.innerHTML = starRating.starRatingHTML;
     }
 };
 

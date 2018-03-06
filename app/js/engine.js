@@ -11,9 +11,14 @@ let Engine = (function(global) {
     const win = global;
     const doc = global.document;
 
+    // Setup access to DOM elements.
     let body = doc.getElementById('body');
     let header = doc.getElementById('header');
     let gameBoardHTML = doc.getElementById('gameboard');
+    let moveCounterElem = doc.getElementById('moveCounter');
+    let timerElem = doc.getElementById('timer');
+    let starRatingElem = doc.getElementById('starRating');
+    
 
     // this variable hold are array of objs that handle everything to do with the deck.
     let newDeck = [];
@@ -23,7 +28,6 @@ let Engine = (function(global) {
     // update entities on the screen.  Request Animation Frame is used to keep the loop going
     // and stay performant.
     function gameLoop() {
-
         // call update
         update();
         // call draw
@@ -40,15 +44,21 @@ let Engine = (function(global) {
         newGameBoard = gameBoard.createGameBoard(newDeck);
         // add the table to the section element
         gameBoardHTML.append(newGameBoard);
-        // add the timer to DOM
-        // add the moveCounter to DOM
+        // add the timer's value to DOM
+        timer.updateDOM(timerElem);
+        // add the moveCounter.currentMoveCount value to DOM
+        moveCount.updateDOM(moveCounterElem);
         // add the starRating to DOM
+       	starRating.updateDOM(starRatingElem);
 
         // add event listeners
+        // 
         // this listener keeps a running move count and updates MoveCount.currentMoveCount as a number
-        doc.getElementById('table').addEventListener('click', incrementMoveCount);
+        doc.getElementById('table').addEventListener('click', moveCount.updateMoveCount);
         // this is our listener to expose an icon when clicked.
         doc.getElementById('table').addEventListener('click', flipTile);
+        
+
         // call gameloop
         gameLoop();
     }
