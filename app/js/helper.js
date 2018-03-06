@@ -58,8 +58,8 @@ function flipTile(event) {
     // get the div to toggle display style on
     let tileDiv = event.target.firstChild;
     let test = tileDiv.firstChild.classList[1];
-    	test = test.toString();
     console.log("test", test);
+    iconDeck.currentPair.push(test);
 
     // if the icon is hidden, then show it.
     if (tileDiv.classList.contains('hideCard')) {
