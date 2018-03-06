@@ -46,7 +46,7 @@ let Engine = (function(global) {
 
         // add event listeners
         // this listener keeps a running move count and updates MoveCount.currentMoveCount as a number
-        doc.getElementById('table').addEventListener('click', incrementMoveCount);
+        doc.getElementById('table').addEventListener('click', moveCount.updateMoveCount);
         // this is our listener to expose an icon when clicked.
         doc.getElementById('table').addEventListener('click', flipTile);
         // call gameloop
