@@ -36,7 +36,7 @@ function createTable(row, col, deck) {
             // add id
             wrapperDiv.id = index;
             // add display none by default
-            wrapperDiv.classList.add('hideCard');
+            wrapperDiv.classList.add('hideCard', 'default');
             // create a new cell and append wrapper div containing FA icon.
             let newCell = newRow.insertCell(cell);
             newCell.appendChild(wrapperDiv);
@@ -66,20 +66,20 @@ function flipTile(event) {
 //this is the callback function to keep track of the number of clicks and update currentMoveCount of the MoveCount
 //obj
 
-function incrementMoveCount(event) {
+// function incrementMoveCount(event) {
     // check that the tile that was clicked is not already clicked. Adding this check
     // will prevent incrementation of the currentMoveCount property being incremented when
     // an already shown icon is clicked again
-    let checkIfIconIsShowing = event.target.firstChild.classList.contains('showCard');
-    let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');
+    // let checkIfIconIsShowing = event.target.firstChild.classList.contains('showCard');
+    // let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');
 
-    if (checkIfIconIsShowing) {
-        return;
-    }
-    if (checkIfIconIsHidden) {
-    	return moveCount.currentMoveCount += 1;
-    }
-}
+    // if (checkIfIconIsShowing) {
+    //     return;
+    // }
+    // if (checkIfIconIsHidden) {
+    // 	return moveCount.currentMoveCount += 1;
+    // }
+// }
 
 // function addListeners is used to kick off all necessary event listeners in the init stage of engine.js
 function addListeners() {
