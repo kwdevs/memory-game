@@ -63,26 +63,3 @@ function flipTile(event) {
         tileDiv.classList.replace('hideCard', 'showCard');
     }
 }
-
-//this is the callback function to keep track of the number of clicks and update currentMoveCount of the MoveCount
-//obj
-
-// function incrementMoveCount(event) {
-// check that the tile that was clicked is not already clicked. Adding this check
-// will prevent incrementation of the currentMoveCount property being incremented when
-// an already shown icon is clicked again
-// let checkIfIconIsShowing = event.target.firstChild.classList.contains('showCard');
-// let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');
-
-// if (checkIfIconIsShowing) {
-//     return;
-// }
-// if (checkIfIconIsHidden) {
-// 	return moveCount.currentMoveCount += 1;
-// }
-// }
-
-// function addListeners is used to kick off all necessary event listeners in the init stage of engine.js
-function addListeners() {
-    document.addEventListener(flipTile(event));
-}
