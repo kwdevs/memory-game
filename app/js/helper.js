@@ -52,7 +52,6 @@ function createTable(row, col, deck) {
 
 // this function will listen for clicks on the able and set the correct td's parent div to display the icon
 function flipTile(event) {
-    console.log("event", event);
 
     // get the div to toggle display style on
     let tileDiv = event.target.firstChild;
@@ -72,9 +71,13 @@ function incrementMoveCount(event) {
     // will prevent incrementation of the currentMoveCount property being incremented when
     // an already shown icon is clicked again
     let checkIfIconIsShowing = event.target.firstChild.classList.contains('showCard');
+    let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');
 
     if (checkIfIconIsShowing) {
-        return moveCount.currentMoveCount += 1;
+        return;
+    }
+    if (checkIfIconIsHidden) {
+    	return moveCount.currentMoveCount += 1;
     }
 }
 
