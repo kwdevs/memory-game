@@ -141,11 +141,9 @@ const moveCount = {
         
 
         if (checkIfIconIsShowing) {
-        	console.log('ran');
             return;
         }
         if (checkIfIconIsHidden) {
-            console.log('ran');
             return moveCount.currentMoveCount += 1;
         }  
     },
