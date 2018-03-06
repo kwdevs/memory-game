@@ -23,7 +23,7 @@ td {
 /*Used for testing card flipping*/
 
 .showCard {
-	display: inline;
+	display: block;
 }
 
 .hideCard {
