@@ -125,7 +125,7 @@ const iconDeck = {
 // setup moveCount object
 const moveCount = {
 
-    moveCountHTML: '',
+    // moveCountHTML: document.createElement('div'),
 
     currentMoveCount: 0,
     
@@ -144,19 +144,19 @@ const moveCount = {
             return;
         }
         if (checkIfIconIsHidden) {
-            return moveCount.currentMoveCount += 1;
+            moveCount.currentMoveCount += 1;
         }  
     },
 
-    updateDOM: function() {
-        // update the DOM
+    updateDOM: function(element) {
+        element.innerText = moveCount.currentMoveCount;
     }
 };
 
 // setup timer object
 const timer = {
 
-    timerHTML: '',
+    runningTime: 0,
 
     start: function() {
         // kicks off timer when first icon is clicked.
@@ -173,8 +173,8 @@ const timer = {
         // func to update timer value.
     },
 
-    updateDOM: function() {
-        // update the DOM
+    updateDOM: function(element) {
+        element.innerText = timer.runningTime;
     }
 };
 
@@ -191,8 +191,9 @@ const starRating = {
         // logic to remove a star
     },
 
-    updateDOM: function() {
-        // update the DOM
+    updateDOM: function(element) {
+        console.log("element", element);
+        element.innerHTML = starRating.starRatingHTML;
     }
 };
 
