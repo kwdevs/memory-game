@@ -28,7 +28,6 @@ let Engine = (function(global) {
     // update entities on the screen.  Request Animation Frame is used to keep the loop going
     // and stay performant.
     function gameLoop() {
-
         // call update
         update();
         // call draw
@@ -53,10 +52,13 @@ let Engine = (function(global) {
        	starRating.updateDOM(starRatingElem);
 
         // add event listeners
+        // 
         // this listener keeps a running move count and updates MoveCount.currentMoveCount as a number
         doc.getElementById('table').addEventListener('click', moveCount.updateMoveCount);
         // this is our listener to expose an icon when clicked.
         doc.getElementById('table').addEventListener('click', flipTile);
+        
+
         // call gameloop
         gameLoop();
     }
