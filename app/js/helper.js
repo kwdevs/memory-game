@@ -21,8 +21,9 @@ function createTable(row, col, deck) {
     // so the arrOfObjs 'currentDeck' is fully cycled through.
     let index = 0;
 
-    //The wrapper div encapsulates the icon html to give us quick access to toggle off/on the icon display
-    // let wrapperDiv = document.createElement('div');
+    //The wrapper div encapsulates the icon html to give us quick access to toggle off/on the icon 
+    //display
+
 
     for (let row = 0; row < 4; ++row) {
 
@@ -67,18 +68,18 @@ function flipTile(event) {
 //obj
 
 // function incrementMoveCount(event) {
-    // check that the tile that was clicked is not already clicked. Adding this check
-    // will prevent incrementation of the currentMoveCount property being incremented when
-    // an already shown icon is clicked again
-    // let checkIfIconIsShowing = event.target.firstChild.classList.contains('showCard');
-    // let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');
+// check that the tile that was clicked is not already clicked. Adding this check
+// will prevent incrementation of the currentMoveCount property being incremented when
+// an already shown icon is clicked again
+// let checkIfIconIsShowing = event.target.firstChild.classList.contains('showCard');
+// let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');
 
-    // if (checkIfIconIsShowing) {
-    //     return;
-    // }
-    // if (checkIfIconIsHidden) {
-    // 	return moveCount.currentMoveCount += 1;
-    // }
+// if (checkIfIconIsShowing) {
+//     return;
+// }
+// if (checkIfIconIsHidden) {
+// 	return moveCount.currentMoveCount += 1;
+// }
 // }
 
 // function addListeners is used to kick off all necessary event listeners in the init stage of engine.js
