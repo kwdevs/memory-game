@@ -57,9 +57,10 @@ function flipTile(event) {
 
     // get the div to toggle display style on
     let tileDiv = event.target.firstChild;
-    let test = tileDiv.firstChild.classList[1];
-    console.log("test", test);
-    iconDeck.currentPair.push(test);
+    // stores the class name of the tile icon that was clicked, ie 'fa-bug'
+    let selectedTile = tileDiv.firstChild.classList[1];
+   	// push the selectedTile on to the currentPair array to be used in other logic.
+    iconDeck.currentPair.push(selectedTile);
 
     // if the icon is hidden, then show it.
     if (tileDiv.classList.contains('hideCard')) {
