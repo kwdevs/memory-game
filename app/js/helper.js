@@ -53,13 +53,20 @@ function createTable(row, col, deck) {
 
 // this function will listen for clicks on the able and set the correct td's parent div to display the icon
 function flipTile(event) {
+    console.log("event", event);
 
     // get the div to toggle display style on
     let tileDiv = event.target.firstChild;
+    let test = tileDiv.firstChild.classList[1];
+    	test = test.toString();
+    console.log("test", test);
 
     // if the icon is hidden, then show it.
     if (tileDiv.classList.contains('hideCard')) {
 
         tileDiv.classList.replace('hideCard', 'showCard');
     }
+
+    // store the tile in currentPair for comparison in engine.js update fn
+    
 }

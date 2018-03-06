@@ -24,6 +24,9 @@ let Engine = (function(global) {
     let newDeck = [];
     let newGameBoard = '';
 
+    // remainingCards is used to check for a win condition when all cards are flipped over
+    let remainingCards = 16;
+
     // The gameLoop fn will call update to respond to changes in the game state and draw to
     // update entities on the screen.  Request Animation Frame is used to keep the loop going
     // and stay performant.
@@ -58,6 +61,7 @@ let Engine = (function(global) {
         // this is our listener to expose an icon when clicked.
         doc.getElementById('table').addEventListener('click', flipTile);
         
+        
 
         // call gameloop
         gameLoop();
@@ -65,7 +69,16 @@ let Engine = (function(global) {
 
     // The update function handles the manipulation of values that are changed based on user actions
     function update() {
-        // update variables
+        
+        /*Check for a win condition in variable remainingCards*/
+        if (remainingCards === 0) {
+        	// stop timer
+        	// trigger modal/break the gameLoop
+        }
+
+
+
+
     }
 
     // The draw function will change the state of enitities on the screen based on the updated

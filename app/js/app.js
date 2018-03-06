@@ -31,6 +31,9 @@ const gameBoard = {
 // setup cardDeck object.
 const iconDeck = {
 
+	// used in update function to store selected cards for comparison
+	currentPair: [],
+
     // this is the html for fontawesome icons
     fAArr: [
         '<i class="fas fa-bomb fa-3x"></i>',
