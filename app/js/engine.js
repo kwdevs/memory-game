@@ -18,7 +18,7 @@ let Engine = (function(global) {
     let moveCounterElem = doc.getElementById('moveCounter');
     let timerElem = doc.getElementById('timer');
     let starRatingElem = doc.getElementById('starRating');
-    
+
 
     // this variable hold are array of objs that handle everything to do with the deck.
     let newDeck = [];
@@ -52,16 +52,23 @@ let Engine = (function(global) {
         // add the moveCounter.currentMoveCount value to DOM
         moveCount.updateDOM(moveCounterElem);
         // add the starRating to DOM
-       	starRating.updateDOM(starRatingElem);
+        starRating.updateDOM(starRatingElem);
 
         // add event listeners
         // 
         // this listener keeps a running move count and updates MoveCount.currentMoveCount as a number
-        doc.getElementById('table').addEventListener('click', moveCount.updateMoveCount);
+        // doc.getElementById('table').addEventListener('click', moveCount.updateMoveCount);
         // this is our listener to expose an icon when clicked.
-        doc.getElementById('table').addEventListener('click', flipTile);
-        
-        
+        // doc.getElementById('table').addEventListener('click', showIcon);
+
+        doc.getElementById('table').addEventListener('click', function(event) {
+        	currentClickEvent(event);
+        	moveCount.updateMoveCount(event);
+        	showIcon(event);
+
+        });
+
+
 
         // call gameloop
         gameLoop();
@@ -69,11 +76,23 @@ let Engine = (function(global) {
 
     // The update function handles the manipulation of values that are changed based on user actions
     function update() {
-        
+
         /*Check for a win condition in variable remainingCards*/
         if (remainingCards === 0) {
-        	// stop timer
-        	// trigger modal/break the gameLoop
+            // stop timer
+            // trigger modal/break the gameLoop
+        }
+        // check if cards are a match
+        if (iconDeck.currentPair.length === 2) {
+
+            let isMatch = compareTiles(iconDeck.currentPair);
+
+            if (isMatch) {
+                iconDeck.currentPair = [];
+                remainingCards -= 2;
+            } else {
+            	hideIcon();
+            }
         }
 
 

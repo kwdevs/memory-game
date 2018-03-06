@@ -56,7 +56,6 @@ const iconDeck = {
 
     // this is a fisher yates shuffle implementation
     shuffleIcons: function(array) {
-        // console.log("array", array);
 
         let index = array.length;
 
@@ -195,7 +194,6 @@ const starRating = {
     },
 
     updateDOM: function(element) {
-        console.log("element", element);
         element.innerHTML = starRating.starRatingHTML;
     }
 };

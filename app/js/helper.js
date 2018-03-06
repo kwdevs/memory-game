@@ -46,17 +46,15 @@ function createTable(row, col, deck) {
         }
     }
 
-
-    console.log("table", table);
     return table;
 }
 
 // this function will listen for clicks on the able and set the correct td's parent div to display the icon
-function flipTile(event) {
-    console.log("event", event);
+function showIcon(event) {
 
     // get the div to toggle display style on
     let tileDiv = event.target.firstChild;
+    console.log("tileDiv", tileDiv);
     // stores the class name of the tile icon that was clicked, ie 'fa-bug'
     let selectedTile = tileDiv.firstChild.classList[1];
    	// push the selectedTile on to the currentPair array to be used in other logic.
@@ -70,4 +68,27 @@ function flipTile(event) {
 
     // store the tile in currentPair for comparison in engine.js update fn
     
+}
+
+// function to hide icons if determined not to match
+function hideIcon(){
+
+
+}
+
+
+
+// this function compares the tiles and returns true or false
+function compareTiles(array) {
+	
+	if (array[0] == array[1]) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+// store the click event for use in other fn's
+function currentClickEvent(event) {
+
 }
