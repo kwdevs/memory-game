@@ -104,11 +104,14 @@ function addIdToIconContainer(event) {
 
 // this function compares the tiles and returns true or false
 function compareTiles(array) {
+    
 
     if (array[0] == array[1]) {
-    	decrementRemainingCards();
+    	decrementRemainingCards(iconDeck.remainingCards); 
+    	console.log("array", array);
     	// clear out our matching array.
     	clearCurrentPair();
+    	removeSelectedIconsId();
         return;
     } else if (array[0] !== array[1]) {
     	// flips tiles back over, pass in class name of selected icons
@@ -117,13 +120,24 @@ function compareTiles(array) {
     	clearCurrentPair();
     }
 }
+
+// called by compare tiles to remove id's after a successful match of icons
+function removeSelectedIconsId() {
+
+	let firstIcon = document.getElementById('firstIconSelected');
+	let secondIcon = document.getElementById('secondIconSelected');
+
+	firstIcon.id = '';
+	secondIcon.id = '';
+}
 /*Below this line are what I believe at the moment to be true helper fn's. Above this line
 * refactoring is probably necessary*/
 
 
 // this helper fn decreases number of cards in deck
-function decrementRemainingCards() {
-	return iconDeck.remainingCards - 2;
+function decrementRemainingCards(num) {
+	return num - 2;
+
 }
 
 // helper fn to clear currentPair array
