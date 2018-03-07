@@ -34,8 +34,6 @@ function createTable(row, col, deck) {
             // I wanted this outside the for loop but it would only append to last td created.
             let wrapperDiv = document.createElement('div');
             wrapperDiv.innerHTML = currentDeck[index].tileIcon;
-            // add id
-            wrapperDiv.id = index;
             // add display none by default
             wrapperDiv.classList.add('hideCard');
             // create a new cell and append wrapper div containing FA icon.
@@ -64,33 +62,48 @@ function showIcon(event) {
 }
 
 // function to hide icons if determined not to match
-function hideIcons(firstClass, secondClass) {
+function hideIcons() {
+	let firstIcon = document.getElementById('firstIconSelected');
 
-	// find elem's with class matching iconDeck.currentPair position 0 and 1
-	let firstIcon = document.getElementsByClassName(firstClass);
-	let	firstParent = firstIcon.parentElement;
-	console.log("firstp", firstParent);
-	let secondIcon = document.getElementsByClassName(secondClass);
-	console.log("secondIcon", secondIcon);
-
-	
+	let secondIcon = document.getElementById('secondIconSelected');
+		
+		setTimeout(function(){
+			firstIcon.classList.replace('showCard','hideCard');
+			secondIcon.classList.replace('showCard','hideCard');
+			firstIcon.id = '';
+			secondIcon.id = '';
+		}, 2000);
+		
 }
 
 // store the selected icons in an array that can only have 2 elements
 function storeSelectedIconInfo(event) {
+
 	    // get the class of the selected icon and push it to iconDeck.currentPair
 	    let tempIconClass = event.target.firstChild.firstChild.classList[1];
 	    	iconDeck.currentPair.push(tempIconClass);
 
 	    //get the div and push it to currentPairHTML
-	    let tempIconHTML = event.target.firstChild;
+	    let tempIconHTML = event.target.childNodes;  		  		
 	    	iconDeck.currentPairHTML.push(tempIconHTML);
 }
 
+// fn to add an id to an icon's div
+function addIdToIconContainer(event) {
+	
+	let selectedIcon = event.target.firstChild;
+
+		if (iconDeck.currentPair.length === 0) {
+			selectedIcon.id = iconDeck.firstIconSelected;
+		}else if (iconDeck.currentPair.length === 1) {
+			selectedIcon.id = iconDeck.secondIconSelected;
+		}
+}
+
+// fn to remove an id from an icon's div
 
 // this function compares the tiles and returns true or false
 function compareTiles(array) {
-    console.log("array", array);
 
     if (array[0] == array[1]) {
     	decrementRemainingCards();
@@ -98,9 +111,8 @@ function compareTiles(array) {
     	clearCurrentPair();
         return;
     } else if (array[0] !== array[1]) {
-    	console.log('you guessed wrong');
     	// flips tiles back over, pass in class name of selected icons
-    	hideIcons(array[0], array[1]);
+    	hideIcons();
     	// clear currentPair array
     	clearCurrentPair();
     }

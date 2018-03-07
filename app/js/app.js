@@ -43,6 +43,12 @@ const iconDeck = {
 	// remainingCards is used to check for a win condition when all cards are flipped over
     remainingCards: 16,
 
+    // id that's added to a wrapper div around an icon when it's selected
+    firstIconSelected: 'firstIconSelected',
+
+    // id that's added to a wrapper div around an icon when it's selected
+    secondIconSelected: 'secondIconSelected',
+
     // this is the html for fontawesome icons
     fAArr: [
         '<i class="fas fa-bomb fa-3x"></i>',

@@ -61,6 +61,7 @@ let Engine = (function(global) {
         doc.getElementById('table').addEventListener('click', function(event) {
             console.log("event", event);
         	moveCount.updateMoveCount(event);
+        	addIdToIconContainer(event);
         	storeSelectedIconInfo(event);
         	showIcon(event);
         });
