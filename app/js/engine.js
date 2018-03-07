@@ -24,9 +24,6 @@ let Engine = (function(global) {
     let newDeck = [];
     let newGameBoard = '';
 
-    // remainingCards is used to check for a win condition when all cards are flipped over
-    let remainingCards = 16;
-
     // The gameLoop fn will call update to respond to changes in the game state and draw to
     // update entities on the screen.  Request Animation Frame is used to keep the loop going
     // and stay performant.
@@ -62,10 +59,10 @@ let Engine = (function(global) {
         // doc.getElementById('table').addEventListener('click', showIcon);
 
         doc.getElementById('table').addEventListener('click', function(event) {
-        	currentClickEvent(event);
+            console.log("event", event);
         	moveCount.updateMoveCount(event);
+        	storeSelectedIconInfo(event);
         	showIcon(event);
-
         });
 
 
@@ -78,21 +75,24 @@ let Engine = (function(global) {
     function update() {
 
         /*Check for a win condition in variable remainingCards*/
-        if (remainingCards === 0) {
+        if (iconDeck.remainingCards === 0) {
             // stop timer
             // trigger modal/break the gameLoop
         }
+        // set checkedLastPair to false since array was cleared (only reason to be less than 2)
+        if (iconDeck.currentPair.length < 2) {
+
+        	iconDeck.checkedLastPair = false;
+
+        }
+
         // check if cards are a match
-        if (iconDeck.currentPair.length === 2) {
+        if (iconDeck.checkedLastPair === false && iconDeck.currentPair.length === 2) {
+        	
+        	iconDeck.checkedLastPair = true;
 
-            let isMatch = compareTiles(iconDeck.currentPair);
+        	compareTiles(iconDeck.currentPair);
 
-            if (isMatch) {
-                iconDeck.currentPair = [];
-                remainingCards -= 2;
-            } else {
-            	hideIcon();
-            }
         }
 
 

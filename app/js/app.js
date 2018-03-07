@@ -34,6 +34,15 @@ const iconDeck = {
 	// used in update function to store selected cards for comparison
 	currentPair: [],
 
+	// store the current pair html in a different array
+	currentPairHTML: [],
+
+	// used to limit calls to compare function
+	checkedLastPair: false,
+
+	// remainingCards is used to check for a win condition when all cards are flipped over
+    remainingCards: 16,
+
     // this is the html for fontawesome icons
     fAArr: [
         '<i class="fas fa-bomb fa-3x"></i>',
