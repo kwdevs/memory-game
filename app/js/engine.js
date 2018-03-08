@@ -22,7 +22,7 @@ let Engine = (function(global) {
 
     // this variable hold are array of objs that handle everything to do with the deck.
     let newDeck = [];
-    let newGameBoard = '';
+    let newGameBoard = '';  
 
     // The gameLoop fn will call update to respond to changes in the game state and draw to
     // update entities on the screen.  Request Animation Frame is used to keep the loop going
@@ -52,14 +52,7 @@ let Engine = (function(global) {
         starRating.updateDOM(starRatingElem);
 
         // add event listeners
-        // 
-        // this listener keeps a running move count and updates MoveCount.currentMoveCount as a number
-        // doc.getElementById('table').addEventListener('click', moveCount.updateMoveCount);
-        // this is our listener to expose an icon when clicked.
-        // doc.getElementById('table').addEventListener('click', showIcon);
-
         doc.getElementById('table').addEventListener('click', function(event) {
-            console.log("event", event);
         	moveCount.updateMoveCount(event);
         	addIdToIconContainer(event);
         	storeSelectedIconInfo(event);
@@ -106,7 +99,6 @@ let Engine = (function(global) {
     function draw() {
         // update the screen
     }
-
 
     // call init() as soon as the window has finished loading
     win.onload = init();

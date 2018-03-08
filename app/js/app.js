@@ -6,6 +6,10 @@
 // setup gameboard object
 const gameBoard = {
 
+	// use this variable to block rapid clicks on the gameboard from showing more than 2 
+    // cards at a time.
+    animationCompleted: false,
+
     createGameBoard: function(deck) {
 
         let currentDeck = deck;

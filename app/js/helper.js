@@ -73,7 +73,9 @@ function hideIcons() {
 			firstIcon.id = '';
 			secondIcon.id = '';
 		}, 2000);
-		
+	// since using setTimeout we need to allow clicks on the gameboard again 
+	// after the timer has expired.
+	gameBoard.animationCompleted = true;
 }
 
 // store the selected icons in an array that can only have 2 elements
