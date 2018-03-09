@@ -157,6 +157,10 @@ const timer = {
 
 	currentTime: 0,
 
+	minutes: 0,
+
+	seconds: 0,
+
 	dt: 0,
 
 	getStartTime: function () {
@@ -171,10 +175,22 @@ const timer = {
 
 	keepTime: function () {
 		timer.dt = timer.currentTime - timer.startTime;
+		timer.convertTime(timer.dt);
+	},
+
+	convertTime(td) {
+		timer.seconds = Math.floor(td/1000);
+
+		if (timer.seconds === 60) {
+			timer.seconds = 0;
+			timer.minutes += 1;
+			timer.getCurrentTime();
+			timer.getStartTime();
+		}
 	},
 
 	updateDOMTimer: function (element) {
-		element.innerText = `${timer.dt}`;
+		element.innerText = `${timer.minutes}:${timer.seconds}`;
 	}
 
 

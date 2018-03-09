@@ -63,7 +63,9 @@ let Engine = (function(global) {
     function update() {
     	//  keep setting current time of timer obj on every loop
     	timer.getCurrentTime();
-    	timer.keepTime();
+    	if (moveCount.currentMoveCount >= 1) {
+    		timer.keepTime();
+    	}
     	// update the timer
     	timer.updateDOMTimer(timerElem);
         /*Check for a win condition in variable remainingCards*/
