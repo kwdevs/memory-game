@@ -58,7 +58,6 @@ function showIcon(event) {
 
         tileDiv.classList.replace('hideCard', 'showCard');
     }
-
 }
 
 // function to hide icons if determined not to match
@@ -74,9 +73,6 @@ function hideIcons() {
         secondIcon.id = '';
         addListener();
     }, 2000);
-    // since using setTimeout we need to allow clicks on the gameboard again 
-    // after the timer has expired.
-    gameBoard.animationCompleted = true;
 }
 
 // store the selected icons in an array that can only have 2 elements
@@ -85,10 +81,6 @@ function storeSelectedIconInfo(event) {
     // get the class of the selected icon and push it to iconDeck.currentPair
     let tempIconClass = event.target.firstChild.firstChild.classList[1];
     iconDeck.currentPair.push(tempIconClass);
-
-    //get the div and push it to currentPairHTML
-    let tempIconHTML = event.target.childNodes;
-    iconDeck.currentPairHTML.push(tempIconHTML);
 }
 
 // fn to add an id to an icon's div
@@ -108,16 +100,14 @@ function addIdToIconContainer(event) {
 // this function compares the tiles and returns true or false
 function compareTiles(array) {
 
-
     if (array[0] == array[1]) {
-        decrementRemainingCards(iconDeck.remainingCards);
-        console.log("array", array);
         // clear out our matching array.
         clearCurrentPair();
         removeSelectedIconsId();
         return;
     } else if (array[0] !== array[1]) {
-    	console.log('i ran');
+    	// this will limit the users ability to rapidly click more cards
+    	// reattached in hideIcon()
     	removeListener();
         // flips tiles back over, pass in class name of selected icons
         hideIcons();
@@ -135,6 +125,7 @@ function removeSelectedIconsId() {
     firstIcon.id = '';
     secondIcon.id = '';
 }
+
 /*Below this line are what I believe at the moment to be true helper fn's. Above this line
  * refactoring is probably necessary*/
 

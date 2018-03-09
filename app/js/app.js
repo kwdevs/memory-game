@@ -6,10 +6,6 @@
 // setup gameboard object
 const gameBoard = {
 
-	// use this variable to block rapid clicks on the gameboard from showing more than 2 
-    // cards at a time.
-    animationCompleted: false,
-
     createGameBoard: function(deck) {
 
         let currentDeck = deck;
@@ -37,9 +33,6 @@ const iconDeck = {
 
 	// used in update function to store selected cards for comparison
 	currentPair: [],
-
-	// store the current pair html in a different array
-	currentPairHTML: [],
 
 	// used to limit calls to compare function
 	checkedLastPair: false,
