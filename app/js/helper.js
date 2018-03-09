@@ -155,4 +155,5 @@ let eventResponses =
         addIdToIconContainer(event);
         storeSelectedIconInfo(event);
         showIcon(event);
+        setInterval(timer.keepTime, 1000);
     };

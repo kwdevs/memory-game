@@ -58,7 +58,6 @@ let Engine = (function(global) {
 
     // The update function handles the manipulation of values that are changed based on user actions
     function update() {
-
         /*Check for a win condition in variable remainingCards*/
         if (iconDeck.remainingCards === 0) {
             // stop timer
@@ -79,7 +78,7 @@ let Engine = (function(global) {
             compareTiles(iconDeck.currentPair);
 
         }
-
+        // update the displayed number in the counter element.
         moveCount.updateDOM(moveCounterElem);
     }
 

@@ -153,8 +153,28 @@ const moveCount = {
 // setup timer object
 const timer = {
 
-    runningTime: 0,
+	minutes: 0,
 
+	seconds: 0,
+
+	timerElement: document.getElementById('timer'),
+
+	startTime: 0,
+
+	keepTime: function () {
+		if (timer.seconds === 60) {
+			timer.minutes +=1;
+			timer.seconds = 0;
+		} else {
+			timer.seconds += 1;
+		}
+
+		if (timer.minutes === 0) {
+			timer.timerElement.innerText = timer.seconds;
+		} else if (timer.minutes >= 1) {
+			timer.timerElement.innerText = `${timer.minutes}:${timer.seconds}`;
+		}
+	},
     // start: function() {
         // kicks off timer when first icon is clicked.
     // },
@@ -169,6 +189,9 @@ const timer = {
     // updateTimer: function() {
         // func to update timer value.
     // },
+    // 
+    // possible not necessary
+    runningTime: 0,
 
     updateDOM: function(element) {
         element.innerText = timer.runningTime;
