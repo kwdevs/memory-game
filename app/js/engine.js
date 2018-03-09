@@ -63,6 +63,7 @@ let Engine = (function(global) {
     function update() {
     	//  keep setting current time of timer obj on every loop
     	timer.getCurrentTime();
+    	// kick off the timer after mouseup of the first move.
     	if (moveCount.currentMoveCount >= 1) {
     		timer.keepTime();
     	}

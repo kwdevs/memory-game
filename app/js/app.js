@@ -191,6 +191,18 @@ const timer = {
 
 	updateDOMTimer: function (element) {
 		element.innerText = `${timer.minutes}:${timer.seconds}`;
+
+		if (timer.minutes === 0 && timer.seconds === 0) {
+			element.innerText = `00:00`;
+		} else if (timer.minutes === 0 && timer.seconds < 10) {
+			element.innerText = `00:0${timer.seconds}`;
+		} else if (timer.minutes === 0 && timer.seconds >=10) {
+			element.innerText = `00:${timer.seconds}`;
+		} else if (timer.minutes >= 1 && timer.minutes < 10) {
+			element.innerText = `0${timer.minutes}:${timer.seconds}`;
+		} else {
+			element.innerText = `${timer.minutes}:${timer.seconds}`;
+		}
 	}
 
 
@@ -199,10 +211,11 @@ const timer = {
 // setup starRating object
 const starRating = {
 
-    starRatingHTML: '<i class="fas fa-star"></i>',
+    starRatingHTML: '<i class="rating fas fa-star"></i>',
 
     defaultRating: function() {
         // set stars to full
+        
     },
 
     lowerRating: function() {
