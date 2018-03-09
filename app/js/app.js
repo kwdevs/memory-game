@@ -97,16 +97,6 @@ const iconDeck = {
 
             fillColor: '#EF550FFF',
 
-            dimensions: {
-                x: 150,
-                y: 150
-            },
-
-            state: {
-                faceUp: false,
-                faceDown: true
-            },
-
             tileIcon: singleIcon,
 
         };
