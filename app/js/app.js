@@ -153,49 +153,31 @@ const moveCount = {
 // setup timer object
 const timer = {
 
-	minutes: 0,
-
-	seconds: 0,
-
-	timerElement: document.getElementById('timer'),
-
 	startTime: 0,
 
-	keepTime: function () {
-		if (timer.seconds === 60) {
-			timer.minutes +=1;
-			timer.seconds = 0;
-		} else {
-			timer.seconds += 1;
-		}
+	currentTime: 0,
 
-		if (timer.minutes === 0) {
-			timer.timerElement.innerText = timer.seconds;
-		} else if (timer.minutes >= 1) {
-			timer.timerElement.innerText = `${timer.minutes}:${timer.seconds}`;
-		}
+	dt: 0,
+
+	getStartTime: function () {
+		timer.startTime = Date.now();
+		// immediately remove listener so startTime isn't overwritten every mouseup.
+		removeStartTimeListener();
 	},
-    // start: function() {
-        // kicks off timer when first icon is clicked.
-    // },
 
-    // stop: function() {
-        // called whenever all cards are matched and game is won.
-    // },
-    // currentTime: function() {
-    //     return Date.now;
-    // },
+	getCurrentTime: function () {
+		timer.currentTime = Date.now();
+	},
 
-    // updateTimer: function() {
-        // func to update timer value.
-    // },
-    // 
-    // possible not necessary
-    runningTime: 0,
+	keepTime: function () {
+		timer.dt = timer.currentTime - timer.startTime;
+	},
 
-    updateDOM: function(element) {
-        element.innerText = timer.runningTime;
-    }
+	updateDOMTimer: function (element) {
+		element.innerText = `${timer.dt}/1000`;
+	}
+
+
 };
 
 // setup starRating object

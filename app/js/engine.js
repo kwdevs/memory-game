@@ -45,19 +45,27 @@ let Engine = (function(global) {
         // add the table to the section element
         gameBoardHTML.append(newGameBoard);
         // add the timer's value to DOM
-        timer.updateDOM(timerElem);
+        
+
+
         // add the moveCounter.currentMoveCount value to DOM
         moveCount.updateDOM(moveCounterElem);
         // add the starRating to DOM
         starRating.updateDOM(starRatingElem);
         // add necessary events to table
         addListener();
+        addTimerListener();
         // call gameloop
         gameLoop();
     }
 
     // The update function handles the manipulation of values that are changed based on user actions
     function update() {
+    	//  keep setting current time of timer obj on every loop
+    	timer.getCurrentTime();
+    	timer.keepTime();
+    	// update the timer
+    	timer.updateDOMTimer(timerElem);
         /*Check for a win condition in variable remainingCards*/
         if (iconDeck.remainingCards === 0) {
             // stop timer

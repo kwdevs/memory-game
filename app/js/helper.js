@@ -138,14 +138,24 @@ function clearCurrentPair() {
     return;
 }
 
-// fn to call to apply listeners
+// fn to call to apply batch of listeners
 function addListener() {
     document.getElementById('table').addEventListener('click', eventResponses);
 }
 
-// fn to call when removing listener during time delays or animation
+// fn to call when removing batch of listener during time delays or animation
 function removeListener() {
     document.getElementById('table').removeEventListener('click', eventResponses);
+}
+
+// fn to call when adding timer listener
+function addTimerListener() {
+	document.getElementById('table').addEventListener('mouseup', timer.getStartTime);
+}
+
+// fn remove timer listener
+function removeStartTimeListener() {
+	document.getElementById('table').removeEventListener('mouseup', timer.getStartTime);
 }
 
 // using named function inside listener so I can remove it later
@@ -155,5 +165,4 @@ let eventResponses =
         addIdToIconContainer(event);
         storeSelectedIconInfo(event);
         showIcon(event);
-        setInterval(timer.keepTime, 1000);
     };
