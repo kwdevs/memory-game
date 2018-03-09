@@ -44,9 +44,8 @@ let Engine = (function(global) {
         newGameBoard = gameBoard.createGameBoard(newDeck);
         // add the table to the section element
         gameBoardHTML.append(newGameBoard);
-        // add the timer's value to DOM
-        
-
+        // add the initial star rating to DOM
+        starRating.updateDOM(starRatingElem, starRating.currentStarRating);
 
         // add the moveCounter.currentMoveCount value to DOM
         moveCount.updateDOM(moveCounterElem);
@@ -61,14 +60,15 @@ let Engine = (function(global) {
 
     // The update function handles the manipulation of values that are changed based on user actions
     function update() {
-    	//  keep setting current time of timer obj on every loop
-    	timer.getCurrentTime();
-    	// kick off the timer after mouseup of the first move.
-    	if (moveCount.currentMoveCount >= 1) {
-    		timer.keepTime();
-    	}
-    	// update the timer
-    	timer.updateDOMTimer(timerElem);
+        //  keep setting current time of timer obj on every loop
+        timer.getCurrentTime();
+        // kick off the timer after mouseup of the first move.
+        if (moveCount.currentMoveCount >= 1) {
+            timer.keepTime();
+        }
+        // update the timer
+        timer.updateDOMTimer(timerElem);
+
         /*Check for a win condition in variable remainingCards*/
         if (iconDeck.remainingCards === 0) {
             // stop timer
@@ -91,6 +91,9 @@ let Engine = (function(global) {
         }
         // update the displayed number in the counter element.
         moveCount.updateDOM(moveCounterElem);
+        // check for star rating adjustment
+        starRating.checkRating();
+        starRating.updateDOM(starRatingElem, starRating.currentStarRatings);
     }
 
     // The draw function will change the state of enitities on the screen based on the updated
