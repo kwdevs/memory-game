@@ -174,7 +174,7 @@ const timer = {
 	},
 
 	updateDOMTimer: function (element) {
-		element.innerText = `${timer.dt}/1000`;
+		element.innerText = `${timer.dt}`;
 	}
 
 
