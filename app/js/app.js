@@ -127,7 +127,6 @@ const moveCount = {
     // moveCountHTML: document.createElement('div'),
 
     currentMoveCount: 0,
-    
 
     updateMoveCount: function(event) {
         
@@ -136,8 +135,7 @@ const moveCount = {
         // an already shown icon is clicked again
         let checkIfIconIsShowing = event.target.firstChild.classList.contains('showCard');
         
-        let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');
-        
+        let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');  
 
         if (checkIfIconIsShowing) {
             return;
@@ -157,20 +155,20 @@ const timer = {
 
     runningTime: 0,
 
-    start: function() {
+    // start: function() {
         // kicks off timer when first icon is clicked.
-    },
+    // },
 
-    stop: function() {
+    // stop: function() {
         // called whenever all cards are matched and game is won.
-    },
-    currentTime: function() {
-        return Date.now;
-    },
+    // },
+    // currentTime: function() {
+    //     return Date.now;
+    // },
 
-    updateTimer: function() {
+    // updateTimer: function() {
         // func to update timer value.
-    },
+    // },
 
     updateDOM: function(element) {
         element.innerText = timer.runningTime;

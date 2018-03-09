@@ -22,7 +22,7 @@ let Engine = (function(global) {
 
     // this variable hold are array of objs that handle everything to do with the deck.
     let newDeck = [];
-    let newGameBoard = '';  
+    let newGameBoard = '';
 
     // The gameLoop fn will call update to respond to changes in the game state and draw to
     // update entities on the screen.  Request Animation Frame is used to keep the loop going
@@ -50,18 +50,8 @@ let Engine = (function(global) {
         moveCount.updateDOM(moveCounterElem);
         // add the starRating to DOM
         starRating.updateDOM(starRatingElem);
-
-        // add event listeners
-        // doc.getElementById('table').addEventListener('click', function(event) {
-        // 	moveCount.updateMoveCount(event);
-        // 	addIdToIconContainer(event);
-        // 	storeSelectedIconInfo(event);
-        // 	showIcon(event);
-        // });
-        addListener ();
-
-
-
+        // add necessary events to table
+        addListener();
         // call gameloop
         gameLoop();
     }
@@ -77,28 +67,26 @@ let Engine = (function(global) {
         // set checkedLastPair to false since array was cleared (only reason to be less than 2)
         if (iconDeck.currentPair.length < 2) {
 
-        	iconDeck.checkedLastPair = false;
+            iconDeck.checkedLastPair = false;
 
         }
 
         // check if cards are a match
         if (iconDeck.checkedLastPair === false && iconDeck.currentPair.length === 2) {
-        	
-        	iconDeck.checkedLastPair = true;
 
-        	compareTiles(iconDeck.currentPair);
+            iconDeck.checkedLastPair = true;
+
+            compareTiles(iconDeck.currentPair);
 
         }
 
-
-
-
+        moveCount.updateDOM(moveCounterElem);
     }
 
     // The draw function will change the state of enitities on the screen based on the updated
     // values assigned to different entities in the update function.
     function draw() {
-        // update the screen
+        // update the screen IS THIS NECESSARY?
     }
 
     // call init() as soon as the window has finished loading

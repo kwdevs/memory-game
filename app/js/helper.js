@@ -126,10 +126,6 @@ function removeSelectedIconsId() {
     secondIcon.id = '';
 }
 
-/*Below this line are what I believe at the moment to be true helper fn's. Above this line
- * refactoring is probably necessary*/
-
-
 // this helper fn decreases number of cards in deck
 function decrementRemainingCards(num) {
     return num - 2;
