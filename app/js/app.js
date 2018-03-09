@@ -6,10 +6,6 @@
 // setup gameboard object
 const gameBoard = {
 
-	// use this variable to block rapid clicks on the gameboard from showing more than 2 
-    // cards at a time.
-    animationCompleted: false,
-
     createGameBoard: function(deck) {
 
         let currentDeck = deck;
@@ -37,9 +33,6 @@ const iconDeck = {
 
 	// used in update function to store selected cards for comparison
 	currentPair: [],
-
-	// store the current pair html in a different array
-	currentPairHTML: [],
 
 	// used to limit calls to compare function
 	checkedLastPair: false,
@@ -98,26 +91,11 @@ const iconDeck = {
         return array;
     },
 
-    selectIcon: function() {
-        // function that will add an icon after shuffle when creating new game
-        return;
-    },
-
     createIconObj: function(singleIcon) {
 
         let icon = {
 
             fillColor: '#EF550FFF',
-
-            dimensions: {
-                x: 150,
-                y: 150
-            },
-
-            state: {
-                faceUp: false,
-                faceDown: true
-            },
 
             tileIcon: singleIcon,
 
@@ -149,7 +127,6 @@ const moveCount = {
     // moveCountHTML: document.createElement('div'),
 
     currentMoveCount: 0,
-    
 
     updateMoveCount: function(event) {
         
@@ -158,8 +135,7 @@ const moveCount = {
         // an already shown icon is clicked again
         let checkIfIconIsShowing = event.target.firstChild.classList.contains('showCard');
         
-        let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');
-        
+        let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');  
 
         if (checkIfIconIsShowing) {
             return;
@@ -179,20 +155,20 @@ const timer = {
 
     runningTime: 0,
 
-    start: function() {
+    // start: function() {
         // kicks off timer when first icon is clicked.
-    },
+    // },
 
-    stop: function() {
+    // stop: function() {
         // called whenever all cards are matched and game is won.
-    },
-    currentTime: function() {
-        return Date.now;
-    },
+    // },
+    // currentTime: function() {
+    //     return Date.now;
+    // },
 
-    updateTimer: function() {
+    // updateTimer: function() {
         // func to update timer value.
-    },
+    // },
 
     updateDOM: function(element) {
         element.innerText = timer.runningTime;
