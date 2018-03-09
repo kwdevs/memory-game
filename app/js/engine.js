@@ -52,12 +52,13 @@ let Engine = (function(global) {
         starRating.updateDOM(starRatingElem);
 
         // add event listeners
-        doc.getElementById('table').addEventListener('click', function(event) {
-        	moveCount.updateMoveCount(event);
-        	addIdToIconContainer(event);
-        	storeSelectedIconInfo(event);
-        	showIcon(event);
-        });
+        // doc.getElementById('table').addEventListener('click', function(event) {
+        // 	moveCount.updateMoveCount(event);
+        // 	addIdToIconContainer(event);
+        // 	storeSelectedIconInfo(event);
+        // 	showIcon(event);
+        // });
+        addListener ();
 
 
 
