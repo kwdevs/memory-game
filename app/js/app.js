@@ -91,11 +91,6 @@ const iconDeck = {
         return array;
     },
 
-    selectIcon: function() {
-        // function that will add an icon after shuffle when creating new game
-        return;
-    },
-
     createIconObj: function(singleIcon) {
 
         let icon = {
