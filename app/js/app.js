@@ -218,6 +218,7 @@ const starRating = {
         currentStarRating: 3,
 
         checkRating: function() {
+
             switch (moveCount.currentMoveCount) {
                 case 15:
                     {
@@ -239,6 +240,7 @@ const starRating = {
 
 
             updateDOM: function(element, ratingNumber) {
+
                 switch (ratingNumber) {
                     case 3:
                         {

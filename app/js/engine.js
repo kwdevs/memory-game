@@ -87,13 +87,12 @@ let Engine = (function(global) {
             iconDeck.checkedLastPair = true;
 
             compareTiles(iconDeck.currentPair);
+             // update the displayed number in the counter element.
 
         }
+        
         // update the displayed number in the counter element.
         moveCount.updateDOM(moveCounterElem);
-        // check for star rating adjustment
-        starRating.checkRating();
-        starRating.updateDOM(starRatingElem, starRating.currentStarRatings);
     }
 
     // The draw function will change the state of enitities on the screen based on the updated
