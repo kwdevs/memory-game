@@ -161,7 +161,7 @@ const timer = {
 
     seconds: 0,
 
-    dt: 0,
+    td: 0,
 
     getStartTime: function() {
         timer.startTime = Date.now();
@@ -174,8 +174,8 @@ const timer = {
     },
 
     keepTime: function() {
-        timer.dt = timer.currentTime - timer.startTime;
-        timer.convertTime(timer.dt);
+        timer.td = timer.currentTime - timer.startTime;
+        timer.convertTime(timer.td);
     },
 
     convertTime(td) {
@@ -198,6 +198,8 @@ const timer = {
             element.innerText = `00:0${timer.seconds}`;
         } else if (timer.minutes === 0 && timer.seconds >= 10) {
             element.innerText = `00:${timer.seconds}`;
+        } else if (timer.minutes >= 1 && timer.seconds < 10) {
+        	element.innerText = `0${timer.minutes}:0${timer.seconds}`;
         } else if (timer.minutes >= 1 && timer.minutes < 10) {
             element.innerText = `0${timer.minutes}:${timer.seconds}`;
         } else {
