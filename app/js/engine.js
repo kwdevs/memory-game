@@ -54,12 +54,18 @@ let Engine = (function(global) {
         // add necessary events to table
         addListener();
         addTimerListener();
+        addResetButton();
         // call gameloop
         gameLoop();
     }
 
     // The update function handles the manipulation of values that are changed based on user actions
     function update() {
+    	// if reset button is clicked call init
+    	if (resetButton.restartGame === true) {
+    		resetButton.restartGame = false;
+    		init();
+    	}
         //  keep setting current time of timer obj on every loop
         timer.getCurrentTime();
         // kick off the timer after mouseup of the first move.

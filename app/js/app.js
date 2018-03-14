@@ -260,13 +260,15 @@ const starRating = {
 // setup resetButton object
 const resetButton = {
 
+	restartGame: false,
+
     buttonHTML: '<i class="fas fa-redo"></i>',
 
     updateDOM: function (element) {
     	element.innerHTML = resetButton.buttonHTML;
     },
 
-    reset: function() {
-        // call init() or w/e game engine kicks off new game on button click.
+    resetGame: function(event) {
+        resetButton.restartGame = true;
     }
 };

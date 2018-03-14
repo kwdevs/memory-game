@@ -158,6 +158,11 @@ function removeStartTimeListener() {
     document.getElementById('table').removeEventListener('mouseup', timer.getStartTime);
 }
 
+// fn to set listener on reset button
+function addResetButton() {
+	document.getElementById('resetButton').addEventListener('click', resetButton.resetGame)
+}
+
 // using named function inside listener so I can remove it later easily
 let eventResponses =
     function(event) {
