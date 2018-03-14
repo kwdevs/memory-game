@@ -224,7 +224,7 @@ const starRating = {
     currentStarRating: 3,
 
     updateDOM: function(element, ratingNumber) {
-        console.log('updateDom ran');
+
         switch (ratingNumber) {
             case 3:
                 {
@@ -261,6 +261,10 @@ const starRating = {
 const resetButton = {
 
     buttonHTML: '<i class="fas fa-redo"></i>',
+
+    updateDOM: function (element) {
+    	element.innerHTML = resetButton.buttonHTML;
+    },
 
     reset: function() {
         // call init() or w/e game engine kicks off new game on button click.

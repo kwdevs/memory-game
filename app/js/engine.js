@@ -18,7 +18,7 @@ let Engine = (function(global) {
     let moveCounterElem = doc.getElementById('moveCounter');
     let timerElem = doc.getElementById('timer');
     let starRatingElem = doc.getElementById('starRating');
-    let resetIcon = doc.getElementById('resetIcon');
+    let resetIcon = doc.getElementById('resetButton');
 
 
     // this variable hold are array of objs that handle everything to do with the deck.
@@ -49,6 +49,8 @@ let Engine = (function(global) {
         starRating.updateDOM(starRatingElem, starRating.currentStarRating);
         // add the moveCounter.currentMoveCount value to DOM
         moveCount.updateDOM(moveCounterElem);
+        // add reset button to the DOM
+        resetButton.updateDOM(resetIcon);
         // add necessary events to table
         addListener();
         addTimerListener();
