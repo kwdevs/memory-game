@@ -46,11 +46,8 @@ let Engine = (function(global) {
         gameBoardHTML.append(newGameBoard);
         // add the initial star rating to DOM
         starRating.updateDOM(starRatingElem, starRating.currentStarRating);
-
         // add the moveCounter.currentMoveCount value to DOM
         moveCount.updateDOM(moveCounterElem);
-        // add the starRating to DOM
-        starRating.updateDOM(starRatingElem);
         // add necessary events to table
         addListener();
         addTimerListener();
@@ -87,10 +84,50 @@ let Engine = (function(global) {
             iconDeck.checkedLastPair = true;
 
             compareTiles(iconDeck.currentPair);
-             // update the displayed number in the counter element.
+            // update the displayed number in the counter element.
 
         }
-        
+
+        if (moveCount.currentMoveCount > starRating.tempMoveCount) {
+            starRating.tempMoveCount = moveCount.currentMoveCount;
+            starRating.checkedStarRating = false;
+        }
+
+        // encapsulate condition to prevent multiple runs
+        if (starRating.checkedStarRating === false && starRating.currentStarRating != 0) {
+            starRating.checkedStarRating = true;
+            // will a simple switch get the job done
+            switch (moveCount.currentMoveCount) {
+                case 14:
+                    {
+                        starRating.currentStarRating -= 1;
+                        starRating.updateDOM(starRatingElem, starRating.currentStarRating);
+                        // starRating.checkedStarRating = true;
+                        break;
+                    }
+                case 24:
+                    {
+                        starRating.currentStarRating -= 1;
+                        starRating.updateDOM(starRatingElem, starRating.currentStarRating);
+                        // starRating.checkedStarRating = true;
+                        break;
+                    }
+                case 34:
+                    {
+                        starRating.currentStarRating -= 1;
+                        starRating.updateDOM(starRatingElem, starRating.currentStarRating);
+                        // starRating.checkedStarRating = true;
+                        break;
+                    }
+                default:
+                    {
+                        console.log('default');
+                        break;
+                    }
+
+            }
+
+        }
         // update the displayed number in the counter element.
         moveCount.updateDOM(moveCounterElem);
     }

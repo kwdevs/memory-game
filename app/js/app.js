@@ -199,7 +199,7 @@ const timer = {
         } else if (timer.minutes === 0 && timer.seconds >= 10) {
             element.innerText = `00:${timer.seconds}`;
         } else if (timer.minutes >= 1 && timer.seconds < 10) {
-        	element.innerText = `0${timer.minutes}:0${timer.seconds}`;
+            element.innerText = `0${timer.minutes}:0${timer.seconds}`;
         } else if (timer.minutes >= 1 && timer.minutes < 10) {
             element.innerText = `0${timer.minutes}:${timer.seconds}`;
         } else {
@@ -213,72 +213,56 @@ const timer = {
 // setup starRating object
 const starRating = {
 
-        starRatingHTML: '<i class="rating fas fa-star"></i>',
+    checkedStarRating: false,
 
-        currentStarRating: 3,
+    tempMoveCount: 0,
 
-        checkRating: function() {
+    prevMoveCount: 0,
 
-            switch (moveCount.currentMoveCount) {
-                case 15:
-                    {
-                        starRating.currentStarRating -= 1;
-                        break;
-                    }
-                case 25:
-                    {
-                        starRating.currentStarRating -= 1;
-                        break;
-                    }
-                case 35:
-                    {
-                    	starRating.currentStarRating -= 1;
-                    	break;
-                    }
+    starRatingHTML: '<i class="rating fas fa-star"></i>',
+
+    currentStarRating: 3,
+
+    updateDOM: function(element, ratingNumber) {
+        console.log('updateDom ran');
+        switch (ratingNumber) {
+            case 3:
+                {
+                    element.innerHTML = starRating.starRatingHTML +
+                    starRating.starRatingHTML +
+                    starRating.starRatingHTML;
+                    break;
                 }
-            },
-
-
-            updateDOM: function(element, ratingNumber) {
-
-                switch (ratingNumber) {
-                    case 3:
-                        {
-                            element.innerHTML = starRating.starRatingHTML +
-                            starRating.starRatingHTML +
-                            starRating.starRatingHTML;
-                            break;
-                        }
-                    case 2:
-                        {
-                            element.innerHTML = starRating.starRatingHTML +
-                            starRating.starRatingHTML;
-                            break;
-                        }
-                    case 1:
-                        {
-                            element.innerHTML = starRating.starRatingHTML;
-                            break;
-                        }
-                    case 0:
-                        {
-                            element.innerHTML = '';
-                            break;
-                        }
-                    default:
-                        {
-                            break;
-                        }
+            case 2:
+                {
+                    element.innerHTML = starRating.starRatingHTML +
+                    starRating.starRatingHTML;
+                    break;
                 }
-            }
-        };
+            case 1:
+                {
+                    element.innerHTML = starRating.starRatingHTML;
+                    break;
+                }
+            case 0:
+                {
+                    element.innerHTML = '';
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }
+    }
+};
 
-        // setup resetButton object
-        const resetButton = {
+// setup resetButton object
+const resetButton = {
 
-            buttonHTML: '<i class="fas fa-redo"></i>',
+    buttonHTML: '<i class="fas fa-redo"></i>',
 
-            reset: function() {
-                // call init() or w/e game engine kicks off new game on button click.
-            }
-        };
+    reset: function() {
+        // call init() or w/e game engine kicks off new game on button click.
+    }
+};
