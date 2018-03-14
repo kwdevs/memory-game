@@ -18,6 +18,7 @@ let Engine = (function(global) {
     let moveCounterElem = doc.getElementById('moveCounter');
     let timerElem = doc.getElementById('timer');
     let starRatingElem = doc.getElementById('starRating');
+    let resetIcon = doc.getElementById('resetIcon');
 
 
     // this variable hold are array of objs that handle everything to do with the deck.
