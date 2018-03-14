@@ -158,7 +158,7 @@ function removeStartTimeListener() {
     document.getElementById('table').removeEventListener('mouseup', timer.getStartTime);
 }
 
-// using named function inside listener so I can remove it later
+// using named function inside listener so I can remove it later easily
 let eventResponses =
     function(event) {
         moveCount.updateMoveCount(event);

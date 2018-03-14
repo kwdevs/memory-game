@@ -69,7 +69,7 @@ let Engine = (function(global) {
         /*Check for a win condition in variable remainingCards*/
         if (iconDeck.remainingCards === 0) {
             // stop timer
-            // trigger modal/break the gameLoop
+            // trigger modal/break the gameLoop/win condition
         }
         // set checkedLastPair to false since array was cleared (only reason to be less than 2)
         if (iconDeck.currentPair.length < 2) {
