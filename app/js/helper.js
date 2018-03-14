@@ -106,9 +106,9 @@ function compareTiles(array) {
         removeSelectedIconsId();
         return;
     } else if (array[0] !== array[1]) {
-    	// this will limit the users ability to rapidly click more cards
-    	// reattached in hideIcon()
-    	removeListener();
+        // this will limit the users ability to rapidly click more cards
+        // reattached in hideIcon()
+        removeListener();
         // flips tiles back over, pass in class name of selected icons
         hideIcons();
         // clear currentPair array
@@ -150,12 +150,12 @@ function removeListener() {
 
 // fn to call when adding timer listener
 function addTimerListener() {
-	document.getElementById('table').addEventListener('mouseup', timer.getStartTime);
+    document.getElementById('table').addEventListener('mouseup', timer.getStartTime);
 }
 
 // fn remove timer listener
 function removeStartTimeListener() {
-	document.getElementById('table').removeEventListener('mouseup', timer.getStartTime);
+    document.getElementById('table').removeEventListener('mouseup', timer.getStartTime);
 }
 
 // using named function inside listener so I can remove it later

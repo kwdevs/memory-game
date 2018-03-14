@@ -31,13 +31,13 @@ const gameBoard = {
 // setup cardDeck object.
 const iconDeck = {
 
-	// used in update function to store selected cards for comparison
-	currentPair: [],
+    // used in update function to store selected cards for comparison
+    currentPair: [],
 
-	// used to limit calls to compare function
-	checkedLastPair: false,
+    // used to limit calls to compare function
+    checkedLastPair: false,
 
-	// remainingCards is used to check for a win condition when all cards are flipped over
+    // remainingCards is used to check for a win condition when all cards are flipped over
     remainingCards: 16,
 
     // id that's added to a wrapper div around an icon when it's selected
@@ -129,20 +129,20 @@ const moveCount = {
     currentMoveCount: 0,
 
     updateMoveCount: function(event) {
-        
+
         // check that the tile that was clicked is not already clicked. Adding this check
         // will prevent incrementation of the currentMoveCount property being incremented when
         // an already shown icon is clicked again
         let checkIfIconIsShowing = event.target.firstChild.classList.contains('showCard');
-        
-        let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');  
+
+        let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');
 
         if (checkIfIconIsShowing) {
             return;
         }
         if (checkIfIconIsHidden) {
             moveCount.currentMoveCount += 1;
-        }  
+        }
     },
 
     updateDOM: function(element) {
@@ -153,57 +153,59 @@ const moveCount = {
 // setup timer object
 const timer = {
 
-	startTime: 0,
+    startTime: 0,
 
-	currentTime: 0,
+    currentTime: 0,
 
-	minutes: 0,
+    minutes: 0,
 
-	seconds: 0,
+    seconds: 0,
 
-	dt: 0,
+    td: 0,
 
-	getStartTime: function () {
-		timer.startTime = Date.now();
-		// immediately remove listener so startTime isn't overwritten every mouseup.
-		removeStartTimeListener();
-	},
+    getStartTime: function() {
+        timer.startTime = Date.now();
+        // immediately remove listener so startTime isn't overwritten every mouseup.
+        removeStartTimeListener();
+    },
 
-	getCurrentTime: function () {
-		timer.currentTime = Date.now();
-	},
+    getCurrentTime: function() {
+        timer.currentTime = Date.now();
+    },
 
-	keepTime: function () {
-		timer.dt = timer.currentTime - timer.startTime;
-		timer.convertTime(timer.dt);
-	},
+    keepTime: function() {
+        timer.td = timer.currentTime - timer.startTime;
+        timer.convertTime(timer.td);
+    },
 
-	convertTime(td) {
-		timer.seconds = Math.floor(td/1000);
+    convertTime(td) {
+        timer.seconds = Math.floor(td / 1000);
 
-		if (timer.seconds === 60) {
-			timer.seconds = 0;
-			timer.minutes += 1;
-			timer.getCurrentTime();
-			timer.getStartTime();
-		}
-	},
+        if (timer.seconds === 60) {
+            timer.seconds = 0;
+            timer.minutes += 1;
+            timer.getCurrentTime();
+            timer.getStartTime();
+        }
+    },
 
-	updateDOMTimer: function (element) {
-		element.innerText = `${timer.minutes}:${timer.seconds}`;
+    updateDOMTimer: function(element) {
+        element.innerText = `${timer.minutes}:${timer.seconds}`;
 
-		if (timer.minutes === 0 && timer.seconds === 0) {
-			element.innerText = `00:00`;
-		} else if (timer.minutes === 0 && timer.seconds < 10) {
-			element.innerText = `00:0${timer.seconds}`;
-		} else if (timer.minutes === 0 && timer.seconds >=10) {
-			element.innerText = `00:${timer.seconds}`;
-		} else if (timer.minutes >= 1 && timer.minutes < 10) {
-			element.innerText = `0${timer.minutes}:${timer.seconds}`;
-		} else {
-			element.innerText = `${timer.minutes}:${timer.seconds}`;
-		}
-	}
+        if (timer.minutes === 0 && timer.seconds === 0) {
+            element.innerText = `00:00`;
+        } else if (timer.minutes === 0 && timer.seconds < 10) {
+            element.innerText = `00:0${timer.seconds}`;
+        } else if (timer.minutes === 0 && timer.seconds >= 10) {
+            element.innerText = `00:${timer.seconds}`;
+        } else if (timer.minutes >= 1 && timer.seconds < 10) {
+            element.innerText = `0${timer.minutes}:0${timer.seconds}`;
+        } else if (timer.minutes >= 1 && timer.minutes < 10) {
+            element.innerText = `0${timer.minutes}:${timer.seconds}`;
+        } else {
+            element.innerText = `${timer.minutes}:${timer.seconds}`;
+        }
+    }
 
 
 };
@@ -211,19 +213,47 @@ const timer = {
 // setup starRating object
 const starRating = {
 
+    checkedStarRating: false,
+
+    tempMoveCount: 0,
+
+    prevMoveCount: 0,
+
     starRatingHTML: '<i class="rating fas fa-star"></i>',
 
-    defaultRating: function() {
-        // set stars to full
-        
-    },
+    currentStarRating: 3,
 
-    lowerRating: function() {
-        // logic to remove a star
-    },
-
-    updateDOM: function(element) {
-        element.innerHTML = starRating.starRatingHTML;
+    updateDOM: function(element, ratingNumber) {
+        console.log('updateDom ran');
+        switch (ratingNumber) {
+            case 3:
+                {
+                    element.innerHTML = starRating.starRatingHTML +
+                    starRating.starRatingHTML +
+                    starRating.starRatingHTML;
+                    break;
+                }
+            case 2:
+                {
+                    element.innerHTML = starRating.starRatingHTML +
+                    starRating.starRatingHTML;
+                    break;
+                }
+            case 1:
+                {
+                    element.innerHTML = starRating.starRatingHTML;
+                    break;
+                }
+            case 0:
+                {
+                    element.innerHTML = '';
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }
     }
 };
 
