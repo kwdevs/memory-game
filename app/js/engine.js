@@ -130,13 +130,6 @@ let Engine = (function(global) {
                         // starRating.checkedStarRating = true;
                         break;
                     }
-                // case 34:
-                //     {
-                //         starRating.currentStarRating -= 1;
-                //         starRating.updateDOM(starRatingElem, starRating.currentStarRating);
-                //         // starRating.checkedStarRating = true;
-                //         break;
-                //     }
                 default:
                     {
                         break;
