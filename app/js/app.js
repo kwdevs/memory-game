@@ -36,10 +36,10 @@ const iconDeck = {
     remainingCards: 16,
 
     // id that's added to a wrapper div around an icon when it's selected
-    firstIconSelected: 'firstIconSelected',
+    firstIconSelected: 'first-icon-selected',
 
     // id that's added to a wrapper div around an icon when it's selected
-    secondIconSelected: 'secondIconSelected',
+    secondIconSelected: 'second-icon-selected',
 
     // this is the html for fontawesome icons
     fAArr: [
@@ -128,9 +128,9 @@ const moveCount = {
         // check that the tile that was clicked is not already clicked. Adding this check
         // will prevent incrementation of the currentMoveCount property being incremented when
         // an already shown icon is clicked again
-        let checkIfIconIsShowing = event.target.firstChild.classList.contains('showCard');
+        let checkIfIconIsShowing = event.target.firstChild.classList.contains('show-card');
 
-        let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');
+        let checkIfIconIsHidden = event.target.firstChild.classList.contains('hide-card');
 
         if (checkIfIconIsShowing) {
             return;

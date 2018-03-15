@@ -10,8 +10,8 @@ table, tbody {
 
 tbody, td {
 	border: 1px solid black;
-	height: 125px;
-	width: 125px;
+	height: 25%;
+	width: 25%;
 }
 
 td {
@@ -19,13 +19,44 @@ td {
 	text-align: center;
 }
 
+.modal {
+	background-color: rgba(0,0,0);
+	background-color: rgba(0,0,0,0.2);
+	display: none;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	right: 0;
+	width: 100%;
+	z-index: 1;
+}
 
-/*Used for testing card flipping*/
+.modal-body {
+	background-color: #fefefe;
+	border: 1px solid black;
+	margin: 20% auto;
+	width: 50%;
 
-.showCard {
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.show-card {
 	display: block;
 }
 
-.hideCard {
+.hide-card {
 	display: none;
 }
