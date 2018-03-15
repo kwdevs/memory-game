@@ -289,10 +289,13 @@ const resetButton = {
 
  	saveWinningData: function (moveCountElem, timerElem, starRatingElem) {
  		winnerModal.finalMoveCount = moveCountElem.innerText;
- 		console.log("winnerModal.finalMoveCount", winnerModal.finalMoveCount);
  		winnerModal.finalTime = timerElem.innerText;
- 		console.log("winnerModal.finalTime", winnerModal.finalTime);
  		winnerModal.finalStarRating = starRatingElem.innerHTML;
- 		console.log("winnerModal.finalStarRating", winnerModal.finalStarRating);
+ 	},
+
+ 	resetWinningData: function () {
+ 		winnerModal.finalMoveCount = 0;
+ 		winnerModal.finalTime = 0;
+ 		winnerModal.finalStarRating = '';	
  	}
  };

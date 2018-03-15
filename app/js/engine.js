@@ -52,6 +52,8 @@ let Engine = (function(global) {
 
     // init is a function used to set the game up
     function init() {
+    	// clear previous winner data
+    	winnerModal.resetWinningData();
         // here we set the newDeck variable to a freshly shuffled arr of icon objs
         newDeck = iconDeck.createDeck(iconDeck.fAArr);
         //this call builds the table with innerhtml of cells set to a shuffled icon
