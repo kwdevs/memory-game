@@ -20,11 +20,6 @@ const gameBoard = {
 
         return newTable;
     },
-
-    //remove table
-    removeGameBoard: function() {
-        // function to be called when starting a new game
-    }
 };
 
 
@@ -206,8 +201,6 @@ const timer = {
             element.innerText = `${timer.minutes}:${timer.seconds}`;
         }
     }
-
-
 };
 
 // setup starRating object
@@ -224,7 +217,7 @@ const starRating = {
     currentStarRating: 3,
 
     updateDOM: function(element, ratingNumber) {
-        console.log('updateDom ran');
+
         switch (ratingNumber) {
             case 3:
                 {
@@ -260,9 +253,27 @@ const starRating = {
 // setup resetButton object
 const resetButton = {
 
+	restartGame: false,
+
     buttonHTML: '<i class="fas fa-redo"></i>',
 
-    reset: function() {
-        // call init() or w/e game engine kicks off new game on button click.
+    updateDOM: function (element) {
+    	element.innerHTML = resetButton.buttonHTML;
+    },
+
+    resetGame: function(event) {
+        resetButton.restartGame = true;
+    },
+
+    clearGameData: function (moveCounterElem, timerElem, starRatingElem, gameBoardHTML) {
+    	moveCount.currentMoveCount = 0;
+    	timer.minutes = 0;
+    	timer.seconds = 0;
+    	starRating.currentStarRating = 3;
+    	starRating.checkedStarRating = false;
+    	starRating.tempMoveCount = 0;
+    	gameBoardHTML.innerHTML = '';
+    	iconDeck.currentPair = [];
+
     }
 };

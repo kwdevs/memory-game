@@ -18,6 +18,7 @@ let Engine = (function(global) {
     let moveCounterElem = doc.getElementById('moveCounter');
     let timerElem = doc.getElementById('timer');
     let starRatingElem = doc.getElementById('starRating');
+    let resetIcon = doc.getElementById('resetButton');
 
 
     // this variable hold are array of objs that handle everything to do with the deck.
@@ -48,15 +49,24 @@ let Engine = (function(global) {
         starRating.updateDOM(starRatingElem, starRating.currentStarRating);
         // add the moveCounter.currentMoveCount value to DOM
         moveCount.updateDOM(moveCounterElem);
+        // add reset button to the DOM
+        resetButton.updateDOM(resetIcon);
         // add necessary events to table
         addListener();
         addTimerListener();
+        addResetButton();
         // call gameloop
         gameLoop();
     }
 
     // The update function handles the manipulation of values that are changed based on user actions
     function update() {
+    	// if reset button is clicked call init
+    	if (resetButton.restartGame === true) {
+    		resetButton.restartGame = false;
+    		resetButton.clearGameData(moveCounterElem, timerElem, starRatingElem, gameBoardHTML);
+    		init();
+    	}
         //  keep setting current time of timer obj on every loop
         timer.getCurrentTime();
         // kick off the timer after mouseup of the first move.
@@ -69,7 +79,7 @@ let Engine = (function(global) {
         /*Check for a win condition in variable remainingCards*/
         if (iconDeck.remainingCards === 0) {
             // stop timer
-            // trigger modal/break the gameLoop
+            // trigger modal/break the gameLoop/win condition
         }
         // set checkedLastPair to false since array was cleared (only reason to be less than 2)
         if (iconDeck.currentPair.length < 2) {
@@ -98,7 +108,7 @@ let Engine = (function(global) {
             starRating.checkedStarRating = true;
             // will a simple switch get the job done
             switch (moveCount.currentMoveCount) {
-                case 14:
+                case 3:
                     {
                         starRating.currentStarRating -= 1;
                         starRating.updateDOM(starRatingElem, starRating.currentStarRating);
@@ -121,7 +131,6 @@ let Engine = (function(global) {
                     }
                 default:
                     {
-                        console.log('default');
                         break;
                     }
 
