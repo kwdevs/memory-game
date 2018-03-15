@@ -45,7 +45,16 @@ let Engine = (function(global) {
         	removeListener();	
             // Get the data necessary for display on modal
             winnerModal.saveWinningData(moveCounterElem, timerElem, starRatingElem);
-            // trigger modal/break the gameLoop/win condition
+            // log the data
+            console.log("winnerModal.finalStarRating", winnerModal.finalStarRating);
+ 			console.log("winnerModal.finalTime", winnerModal.finalTime);
+ 			console.log("winnerModal.finalMoveCount", winnerModal.finalMoveCount);
+            // Update the modal with game state data
+            winnerModal.updateModalContent(winnerModal.finalMoveCount, 
+            							   winnerModal.finalTime,
+            							   winnerModal.finalStarRating);
+            // show modal
+            winnerModal.displayModal();
             return;
         }
     }

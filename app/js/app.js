@@ -296,6 +296,22 @@ const resetButton = {
  	resetWinningData: function () {
  		winnerModal.finalMoveCount = 0;
  		winnerModal.finalTime = 0;
- 		winnerModal.finalStarRating = '';	
+ 		winnerModal.finalStarRating = '';
+ 	},
+
+ 	updateModalContent: function (moveCount, time, starRating) {
+ 		// get the elements to update
+ 		let moveCountElem = document.getElementById('winning-move-count');
+ 		let timerElem = document.getElementById('winning-time');
+ 		let ratingElem = document.getElementById('winning-star-rating');
+ 		// insert necessary data
+ 		moveCountElem.innerText = moveCount;
+ 		timerElem.innerText = time;
+ 		ratingElem.innerHTML = starRating;
+ 	},
+
+ 	displayModal: function () {
+ 		let modal = document.getElementById('winner-modal');
+ 			modal.style.display = 'block';
  	}
  };
