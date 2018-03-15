@@ -20,11 +20,6 @@ const gameBoard = {
 
         return newTable;
     },
-
-    //remove table
-    removeGameBoard: function() {
-        // function to be called when starting a new game
-    }
 };
 
 
@@ -278,6 +273,7 @@ const resetButton = {
     	starRating.checkedStarRating = false;
     	starRating.tempMoveCount = 0;
     	gameBoardHTML.innerHTML = '';
+    	iconDeck.currentPair = [];
 
     }
 };
