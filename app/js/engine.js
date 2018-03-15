@@ -64,6 +64,7 @@ let Engine = (function(global) {
     	// if reset button is clicked call init
     	if (resetButton.restartGame === true) {
     		resetButton.restartGame = false;
+    		resetButton.clearGameData(moveCounterElem, timerElem, starRatingElem, gameBoardHTML);
     		init();
     	}
         //  keep setting current time of timer obj on every loop
@@ -107,7 +108,7 @@ let Engine = (function(global) {
             starRating.checkedStarRating = true;
             // will a simple switch get the job done
             switch (moveCount.currentMoveCount) {
-                case 14:
+                case 3:
                     {
                         starRating.currentStarRating -= 1;
                         starRating.updateDOM(starRatingElem, starRating.currentStarRating);
@@ -130,7 +131,6 @@ let Engine = (function(global) {
                     }
                 default:
                     {
-                        console.log('default');
                         break;
                     }
 

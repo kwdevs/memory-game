@@ -206,8 +206,6 @@ const timer = {
             element.innerText = `${timer.minutes}:${timer.seconds}`;
         }
     }
-
-
 };
 
 // setup starRating object
@@ -270,5 +268,16 @@ const resetButton = {
 
     resetGame: function(event) {
         resetButton.restartGame = true;
+    },
+
+    clearGameData: function (moveCounterElem, timerElem, starRatingElem, gameBoardHTML) {
+    	moveCount.currentMoveCount = 0;
+    	timer.minutes = 0;
+    	timer.seconds = 0;
+    	starRating.currentStarRating = 3;
+    	starRating.checkedStarRating = false;
+    	starRating.tempMoveCount = 0;
+    	gameBoardHTML.innerHTML = '';
+
     }
 };
