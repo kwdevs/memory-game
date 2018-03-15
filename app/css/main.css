@@ -18,6 +18,15 @@ td {
 	background-color: #E85D16FF;
 	text-align: center;
 }
+.header {
+	position: relative;
+	z-index: auto;
+}
+
+.gameboard {
+	position: relative;
+	z-index: auto;
+}
 
 .modal {
 	background-color: rgba(0,0,0);
