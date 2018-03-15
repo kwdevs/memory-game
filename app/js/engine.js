@@ -10,6 +10,8 @@ let Engine = (function(global) {
     // Variables to be used throughout Engines entire scope
     const win = global;
     const doc = global.document;
+    // capture RAF id so we can stop the game on win
+    let requestAnimationId = 0;
 
     // Setup access to DOM elements.
     let body = doc.getElementById('body');
@@ -34,7 +36,18 @@ let Engine = (function(global) {
         // call draw
         draw();
         // RAF
-        requestAnimationFrame(gameLoop);
+        requestAnimationId = requestAnimationFrame(gameLoop);
+        /*Check for a win condition in variable remainingCards*/
+        if (iconDeck.remainingCards === 0) {
+        	// stop the gameLoop
+        	win.cancelAnimationFrame(requestAnimationId);
+        	// remove interaction with the table listener
+        	removeListener();	
+            // Get the data necessary for display on modal
+            winnerModal.saveWinningData(moveCounterElem, timerElem, starRatingElem);
+            // trigger modal/break the gameLoop/win condition
+            return;
+        }
     }
 
     // init is a function used to set the game up
@@ -76,11 +89,6 @@ let Engine = (function(global) {
         // update the timer
         timer.updateDOMTimer(timerElem);
 
-        /*Check for a win condition in variable remainingCards*/
-        if (iconDeck.remainingCards === 0) {
-            // stop timer
-            // trigger modal/break the gameLoop/win condition
-        }
         // set checkedLastPair to false since array was cleared (only reason to be less than 2)
         if (iconDeck.currentPair.length < 2) {
 
@@ -104,31 +112,31 @@ let Engine = (function(global) {
         }
 
         // encapsulate condition to prevent multiple runs
-        if (starRating.checkedStarRating === false && starRating.currentStarRating != 0) {
+        if (starRating.checkedStarRating === false && starRating.currentStarRating != 1) {
             starRating.checkedStarRating = true;
             // will a simple switch get the job done
             switch (moveCount.currentMoveCount) {
-                case 3:
+                case 20:
                     {
                         starRating.currentStarRating -= 1;
                         starRating.updateDOM(starRatingElem, starRating.currentStarRating);
                         // starRating.checkedStarRating = true;
                         break;
                     }
-                case 24:
+                case 30:
                     {
                         starRating.currentStarRating -= 1;
                         starRating.updateDOM(starRatingElem, starRating.currentStarRating);
                         // starRating.checkedStarRating = true;
                         break;
                     }
-                case 34:
-                    {
-                        starRating.currentStarRating -= 1;
-                        starRating.updateDOM(starRatingElem, starRating.currentStarRating);
-                        // starRating.checkedStarRating = true;
-                        break;
-                    }
+                // case 34:
+                //     {
+                //         starRating.currentStarRating -= 1;
+                //         starRating.updateDOM(starRatingElem, starRating.currentStarRating);
+                //         // starRating.checkedStarRating = true;
+                //         break;
+                //     }
                 default:
                     {
                         break;

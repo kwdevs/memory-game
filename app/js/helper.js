@@ -104,6 +104,7 @@ function compareTiles(array) {
         // clear out our matching array.
         clearCurrentPair();
         removeSelectedIconsId();
+        iconDeck.remainingCards -= 2;
         return;
     } else if (array[0] !== array[1]) {
         // this will limit the users ability to rapidly click more cards
