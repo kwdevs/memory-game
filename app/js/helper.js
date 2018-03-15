@@ -161,7 +161,7 @@ function removeStartTimeListener() {
 
 // fn to set listener on reset button
 function addResetButton() {
-	document.getElementById('resetButton').addEventListener('click', resetButton.resetGame)
+	document.getElementById('reset-button').addEventListener('click', resetButton.resetGame)
 }
 
 // using named function inside listener so I can remove it later easily

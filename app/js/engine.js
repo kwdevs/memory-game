@@ -17,10 +17,10 @@ let Engine = (function(global) {
     let body = doc.getElementById('body');
     let header = doc.getElementById('header');
     let gameBoardHTML = doc.getElementById('gameboard');
-    let moveCounterElem = doc.getElementById('moveCounter');
+    let moveCounterElem = doc.getElementById('move-counter');
     let timerElem = doc.getElementById('timer');
-    let starRatingElem = doc.getElementById('starRating');
-    let resetIcon = doc.getElementById('resetButton');
+    let starRatingElem = doc.getElementById('star-rating');
+    let resetIcon = doc.getElementById('reset-button');
 
 
     // this variable hold are array of objs that handle everything to do with the deck.
