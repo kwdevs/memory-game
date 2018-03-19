@@ -1,13 +1,48 @@
 /*Initial styles for smallest mobile*/
 body {
-	display: 
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
 	background: grey;
 	color: white;
+	display: block; -webkit-box-sizing: border-box;
+	   				-moz-box-sizing: border-box;
+	        		box-sizing: border-box;
 	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	text-align: center;
+	width: 100%;
 }
+
+header {
+	border: 1px solid white;
+	display: flex;
+}
+
+.scoreboard,
+.scoreboard-labels {
+	display: flex;
+	font-size: 1.2em;
+}
+.scoreboard-labels > p {
+	text-decoration: underline;
+	width: 33%;
+}
+.scoreboard > div {
+	width: 33%;
+}
+
+.gameboard {
+	
+}
+
+#header-text {
+	margin: 0;
+	width: 80%;
+}
+
+#reset-button {
+	width: 20%;
+	padding-top: 10px;
+}
+
 /*Modal*/
 /*.modal {
 	background-color: rgba(0,0,0);
