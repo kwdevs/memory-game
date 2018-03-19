@@ -1,4 +1,9 @@
-/*Initial styles for smallest mobiles*/
+/*Initial styles for mobiles (0 - 599px)*/
+html,
+body {
+	height: 100%;
+}
+
 html {
 	background: url(../images/wood-sm.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
@@ -69,13 +74,20 @@ td {
 /*Footer*/
 
 .footer {
-	bottom: 0;
+/*	bottom: 0;*/
 	font-size: 1.7em;
 	height: 50px;
-	left: 0;
+/*	left: 0;
 	position: fixed;
-	width: 100%;
+	width: 100%;*/
 }
+
+/*Tablet Portrait (600 - 899px)*/
+
+/*Tablet Landscape (900 - 1200px)*/
+
+/*Desktop (1200 - 1800px)*/
+
 
 /*Modal*/
 /*.modal {
