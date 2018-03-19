@@ -1,34 +1,41 @@
+/*Core Styles*/
+body, html {
+	
+}
+
 body {
-	margin: 0; 
+	display: grid;
+
 }
 
 table, tbody {
 	background-color: #000;
 	height: 500px;
-	width: 500px;
+	min-width: 500px;
 }
 
 tbody, td {
-	border: 1px solid black;
+	border: 1px solid white;
 	height: 25%;
 	width: 25%;
 }
 
 td {
-	background-color: #E85D16FF;
+	background-color: #fff;
 	text-align: center;
 }
+/*.container {
+
+}
 .header {
-	position: relative;
-	z-index: auto;
+
 }
 
 .gameboard {
-	position: relative;
-	z-index: auto;
-}
 
-.modal {
+}*/
+/*Modal*/
+/*.modal {
 	background-color: rgba(0,0,0);
 	background-color: rgba(0,0,0,0.2);
 	display: none;
@@ -60,8 +67,8 @@ td {
 	color: black;
 	cursor: pointer;
 	text-decoration: none;
-}
-
+}*/
+/*Toggle classes to show cards when clicked.*/
 .show-card {
 	display: block;
 }
