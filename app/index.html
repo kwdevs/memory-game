@@ -10,16 +10,21 @@
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body id='body'>
-	<div class="container">
-		<header class="header">
+	<!-- Header has page title text and the reset button -->
+		<header class="header grid">
 			<h1 id="header-text">Concentration</h1>
-			<div id="reset-button" class="reset-button"></div>
+			<div id="reset-button"></div>
 		</header>
-		<div id="move-counter" class="scoreboard"></div>
-		<div id="timer" class="scoreboard"></div>
-		<div id="star-rating" class="scoreboard"></div>
-		<section id="gameboard" class="gameboard">
+		<!-- This is the scoreboard section. Holds game stats. -->
+		<section class="scoreboard grid">
+			<div id="move-counter"></div>
+			<div id="timer"></div>
+			<div id="star-rating"></div>
 		</section>
+		<!-- The gameboard is a table created in/appended in JS -->
+		<section id="gameboard" class="grid">
+		</section>
+		<!-- The modal is hidden by default, shown when a user wins the game. -->
 	<!-- 	<section id="winner-modal" class="modal">
 			<div class="modal-body">
 				<span id="close-button" class="close">&times;</span>
@@ -33,8 +38,8 @@
 				</div>
 			</div>
 		</section> -->
-	</div>
-	<footer class="footer">
+	<!-- The footer is for style. -->
+	<footer id="footer" class="grid">
 			<p>This is a footer</p>
 	</footer>
 	<script type="text/javascript" src="js/helper.js"></script>

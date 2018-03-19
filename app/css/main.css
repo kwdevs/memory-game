@@ -1,72 +1,12 @@
-/*Core Styles*/
-body, html {
-	box-sizing: border-box;
-}
-
+/*Initial styles for smallest mobile*/
 body {
- margin: 0;
- padding: 0;
-}
-
-.container {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows-rows: 75px, 150px, auto, 50px;
-}
-table, tbody {
-	background-color: #000;
-	height: 500px;
-	width: 500px;
-}
-
-td {
-	background-color: #fff;
-	text-align: center;
-	height: 25%;
-	width: 25%;
-}
-
-.header {
-	background-color: green;
-	grid-column-start: 1;
-	grid-column-end: 3;
-/*	grid-row-start: 1;
-	grid-row-start: 2;*/
-}
-
-.header-text {
-
-}
-
-.reset-button {
- position: relative;
- right: 0px;
- width: 200px;
- border: 1px red solid;
-}
-.scoreboard {
-	background-color: pink;
-	grid-column-start: 1;
- 	grid-column-end: 3;
-/* 	grid-row-start: 2;
-	grid-row-start: 3;*/
-}
-
-.gameboard {
-	background-color: purple;
-	grid-column-start: 1;
- 	grid-column-end: 3;
-/* 	grid-row-start: 3;
- 	grid-row-end: 4;*/
-}
-
-
-.footer {
-	background-color: green;
-	grid-column-start: 1;
-	grid-column-end: 3;
-/*	grid-row-start: 4;
-	grid-row-end: 5;*/
+	display: 
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	background: grey;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
 }
 /*Modal*/
 /*.modal {
