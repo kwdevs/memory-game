@@ -12,8 +12,12 @@ body {
 }
 
 header {
-	/*border: 1px solid white;*/
-	display: flex;
+	padding-top: 10px;
+	text-align: center;
+}
+
+table {
+	padding-top: 10px 0px;
 }
 
 table, tbody {
@@ -26,6 +30,14 @@ td {
 	border: 1px solid white;
 	height: 25%;
 	width: 25%;
+}
+
+h1 {
+	margin: 0;
+}
+
+p {
+	margin: 0;
 }
 
 .scoreboard,
@@ -46,17 +58,8 @@ td {
 }
 
 .footer {
-	display: none;
-}
-
-#header-text {
-	width: 80%;
-}
-
-#reset-button {
-	width: 20%;
-	padding: 30px 0;
-	text-align: center;
+	font-size: 1.7em;
+	padding: 10px 0;
 }
 
 /*Modal*/
