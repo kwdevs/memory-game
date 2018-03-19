@@ -10,28 +10,30 @@
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body id='body'>
-	<header id="header" class="header">
-		<h1>Concentration</h1>
-		<div id="move-counter"></div>
-		<div id="timer"></div>
-		<div id="star-rating"></div>
-		<div id="reset-button"></div>
-	</header>
-	<section id="gameboard" class="gameboard">
-	</section>
-	<section id="winner-modal" class="modal">
-		<div class="modal-body">
-			<span id="close-button" class="close">&times;</span>
-			<div id="results-container">
-				<p id="winning-move-count">			
-				</p>
-				<p id="winning-time">		
-				</p>
-				<p id="winning-star-rating">		
-				</p>
+	<div class="container">
+		<header id="header" class="header">
+			<h1>Concentration</h1>
+			<div id="reset-button"></div>
+		</header>
+		<div id="move-counter" class="scoreboard"></div>
+		<div id="timer" class="scoreboard"></div>
+		<div id="star-rating" class="scoreboard"></div>
+		<section id="gameboard" class="gameboard">
+		</section>
+	<!-- 	<section id="winner-modal" class="modal">
+			<div class="modal-body">
+				<span id="close-button" class="close">&times;</span>
+				<div id="results-container">
+					<p id="winning-move-count">			
+					</p>
+					<p id="winning-time">		
+					</p>
+					<p id="winning-star-rating">		
+					</p>
+				</div>
 			</div>
-		</div>
-	</section>
+		</section> -->
+	</div>
 	<script type="text/javascript" src="js/helper.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/engine.js"></script>
