@@ -10,15 +10,17 @@ let Engine = (function(global) {
     // Variables to be used throughout Engines entire scope
     const win = global;
     const doc = global.document;
+    // capture RAF id so we can stop the game on win
+    let requestAnimationId = 0;
 
     // Setup access to DOM elements.
     let body = doc.getElementById('body');
     let header = doc.getElementById('header');
     let gameBoardHTML = doc.getElementById('gameboard');
-    let moveCounterElem = doc.getElementById('moveCounter');
+    let moveCounterElem = doc.getElementById('move-counter');
     let timerElem = doc.getElementById('timer');
-    let starRatingElem = doc.getElementById('starRating');
-    let resetIcon = doc.getElementById('resetButton');
+    let starRatingElem = doc.getElementById('star-rating');
+    let resetIcon = doc.getElementById('reset-button');
 
 
     // this variable hold are array of objs that handle everything to do with the deck.
@@ -34,11 +36,33 @@ let Engine = (function(global) {
         // call draw
         draw();
         // RAF
-        requestAnimationFrame(gameLoop);
+        requestAnimationId = requestAnimationFrame(gameLoop);
+        /*Check for a win condition in variable remainingCards*/
+        if (iconDeck.remainingCards === 0) {
+        	// stop the gameLoop
+        	win.cancelAnimationFrame(requestAnimationId);
+        	// remove interaction with the table listener
+        	removeListener();	
+            // Get the data necessary for display on modal
+            winnerModal.saveWinningData(moveCounterElem, timerElem, starRatingElem);
+            // log the data
+            console.log("winnerModal.finalStarRating", winnerModal.finalStarRating);
+ 			console.log("winnerModal.finalTime", winnerModal.finalTime);
+ 			console.log("winnerModal.finalMoveCount", winnerModal.finalMoveCount);
+            // Update the modal with game state data
+            winnerModal.updateModalContent(winnerModal.finalMoveCount, 
+            							   winnerModal.finalTime,
+            							   winnerModal.finalStarRating);
+            // show modal
+            winnerModal.displayModal();
+            return;
+        }
     }
 
     // init is a function used to set the game up
     function init() {
+    	// clear previous winner data
+    	winnerModal.resetWinningData();
         // here we set the newDeck variable to a freshly shuffled arr of icon objs
         newDeck = iconDeck.createDeck(iconDeck.fAArr);
         //this call builds the table with innerhtml of cells set to a shuffled icon
@@ -76,11 +100,6 @@ let Engine = (function(global) {
         // update the timer
         timer.updateDOMTimer(timerElem);
 
-        /*Check for a win condition in variable remainingCards*/
-        if (iconDeck.remainingCards === 0) {
-            // stop timer
-            // trigger modal/break the gameLoop/win condition
-        }
         // set checkedLastPair to false since array was cleared (only reason to be less than 2)
         if (iconDeck.currentPair.length < 2) {
 
@@ -104,25 +123,18 @@ let Engine = (function(global) {
         }
 
         // encapsulate condition to prevent multiple runs
-        if (starRating.checkedStarRating === false && starRating.currentStarRating != 0) {
+        if (starRating.checkedStarRating === false && starRating.currentStarRating != 1) {
             starRating.checkedStarRating = true;
             // will a simple switch get the job done
             switch (moveCount.currentMoveCount) {
-                case 3:
+                case 20:
                     {
                         starRating.currentStarRating -= 1;
                         starRating.updateDOM(starRatingElem, starRating.currentStarRating);
                         // starRating.checkedStarRating = true;
                         break;
                     }
-                case 24:
-                    {
-                        starRating.currentStarRating -= 1;
-                        starRating.updateDOM(starRatingElem, starRating.currentStarRating);
-                        // starRating.checkedStarRating = true;
-                        break;
-                    }
-                case 34:
+                case 30:
                     {
                         starRating.currentStarRating -= 1;
                         starRating.updateDOM(starRatingElem, starRating.currentStarRating);

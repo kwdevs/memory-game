@@ -14,7 +14,7 @@ function createTable(row, col, deck) {
     let tableBody = document.createElement('tbody');
 
     table.setAttribute('id', 'table');
-    tableBody.setAttribute('id', 'tableBody');
+    tableBody.setAttribute('id', 'table-body');
 
     // use a nested for loop to create cells, gameboard is 4x4.
     // index is declared outside the for loop to prevent it's value being reset
@@ -35,7 +35,7 @@ function createTable(row, col, deck) {
             let wrapperDiv = document.createElement('div');
             wrapperDiv.innerHTML = currentDeck[index].tileIcon;
             // add display none by default
-            wrapperDiv.classList.add('hideCard');
+            wrapperDiv.classList.add('hide-card');
             // create a new cell and append wrapper div containing FA icon.
             let newCell = newRow.insertCell(cell);
             newCell.appendChild(wrapperDiv);
@@ -54,21 +54,21 @@ function showIcon(event) {
     let tileDiv = event.target.firstChild;
 
     // if the icon is hidden, then show it.
-    if (tileDiv.classList.contains('hideCard')) {
+    if (tileDiv.classList.contains('hide-card')) {
 
-        tileDiv.classList.replace('hideCard', 'showCard');
+        tileDiv.classList.replace('hide-card', 'show-card');
     }
 }
 
 // function to hide icons if determined not to match
 function hideIcons() {
-    let firstIcon = document.getElementById('firstIconSelected');
+    let firstIcon = document.getElementById('first-icon-selected');
 
-    let secondIcon = document.getElementById('secondIconSelected');
+    let secondIcon = document.getElementById('second-icon-selected');
 
     setTimeout(function() {
-        firstIcon.classList.replace('showCard', 'hideCard');
-        secondIcon.classList.replace('showCard', 'hideCard');
+        firstIcon.classList.replace('show-card', 'hide-card');
+        secondIcon.classList.replace('show-card', 'hide-card');
         firstIcon.id = '';
         secondIcon.id = '';
         addListener();
@@ -104,6 +104,7 @@ function compareTiles(array) {
         // clear out our matching array.
         clearCurrentPair();
         removeSelectedIconsId();
+        iconDeck.remainingCards -= 2;
         return;
     } else if (array[0] !== array[1]) {
         // this will limit the users ability to rapidly click more cards
@@ -119,8 +120,8 @@ function compareTiles(array) {
 // called by compare tiles to remove id's after a successful match of icons
 function removeSelectedIconsId() {
 
-    let firstIcon = document.getElementById('firstIconSelected');
-    let secondIcon = document.getElementById('secondIconSelected');
+    let firstIcon = document.getElementById('first-icon-selected');
+    let secondIcon = document.getElementById('second-icon-selected');
 
     firstIcon.id = '';
     secondIcon.id = '';
@@ -160,7 +161,7 @@ function removeStartTimeListener() {
 
 // fn to set listener on reset button
 function addResetButton() {
-	document.getElementById('resetButton').addEventListener('click', resetButton.resetGame)
+	document.getElementById('reset-button').addEventListener('click', resetButton.resetGame)
 }
 
 // using named function inside listener so I can remove it later easily
