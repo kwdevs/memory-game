@@ -80,7 +80,7 @@ td {
 /*Modal*/
 .modal {
 	background-color: rgba(0,0,0,0.8);
-	display: none;
+	display: flex;
 	height: 100%;
 	left: 0;
 	position: fixed;
@@ -96,10 +96,10 @@ td {
 	border: 3px solid black;
 	margin: 20% auto;
 	width: 80%;
-
 }
 
 .modal-results-container {
+	padding-top: 3.5em;
 	color: #fff;
 }
 
@@ -181,9 +181,19 @@ td {
 		height: 580px;
 		padding: 5px 200px;
 	}
+
+	.modal-body {
+		margin: 17% auto;
+		width: 60%;
+	}
+	
+	.modal-results-container {
+		padding-top: 0;
+	}
+
 }
 
-/*Desktop (1200 - 1800px)*/
+/*Laptop (1200 - 1800px)*/
 @media (min-width: 1200px) and (max-width: 1799px) {
 	
 	body {
@@ -195,6 +205,16 @@ td {
 		height: 500px;
 		padding: 0px 300px;
 	}
+
+	.modal-body {
+		margin: 10% auto;
+		width: 60%;
+	}
+	
+	.modal-results-container {
+		padding-top: 0;
+	}
+
 }
 
 /*over 1800*/
@@ -208,4 +228,14 @@ td {
 		height: 700px;
 		padding: 0px 450px;
 	}
+
+	.modal-body {
+		margin: 10% auto;
+		width: 40%;
+	}
+	
+	.modal-results-container {
+		padding-top: 40px;
+	}
+
 }
