@@ -11,7 +11,7 @@
 	<meta name="description" content='Flip to Win Is the best card game you can play solo! Flip cards, find matches, Win!'>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 	<link rel="stylesheet" href="css/main.css">
-	
+
 </head>
 
 <body id='body'>
@@ -48,12 +48,18 @@
 	<section id="winner-modal" class="modal">
 		<div class="modal-body">
 			<span id="close-button" class="close">&times;</span>
-			<div id="results-container">
-				<p id="winning-move-count">
+			<div id="results-container" class="modal-results-container">
+				<span class="results thumb-icon">
+					<i class="fas fa-thumbs-up"></i>
+				</span>
+				<p id="winning-move-count" class="results">
+					26
 				</p>
-				<p id="winning-time">
+				<p id="winning-time" class="results">
+					00:00
 				</p>
-				<p id="winning-star-rating">
+				<p id="winning-star-rating" class="results">
+					starstarstar
 				</p>
 			</div>
 		</div>

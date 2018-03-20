@@ -312,6 +312,6 @@ const resetButton = {
 
  	displayModal: function () {
  		let modal = document.getElementById('winner-modal');
- 			modal.style.display = 'block';
+ 			modal.style.display = 'flex';
  	}
  };
