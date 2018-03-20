@@ -183,25 +183,6 @@ td {
 	
 	table, tbody {
 		height: 580px;
-		width: 60%;
-	}
-	
-	.grid {
-		display: grid;
-		grid-template-columns: repeat(1fr, 4);
-	}
-
-	.header,
-	.footer {
-		grid-column: 1/4;
-	}
-
-	.gameboard {
-		display: block;
-	}
-
-	.labels {
-		padding-bottom: 15px;
 	}
 }
 
