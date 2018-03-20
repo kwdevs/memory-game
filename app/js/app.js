@@ -274,7 +274,7 @@ const resetButton = {
     	starRating.tempMoveCount = 0;
     	gameBoardHTML.innerHTML = '';
     	iconDeck.currentPair = [];
-
+        iconDeck.remainingCards = 16;
     }
 };
 
@@ -311,12 +311,11 @@ const resetButton = {
  	},
 
  	displayModal: function () {
- 		let modal = document.getElementById('winner-modal');
- 			modal.style.display = 'flex';
+ 		document.getElementById('winner-modal').classList.add('show-modal');			
  	},
 
     closeModal: function () {
-        let modal = document.getElementById('winner-modal');
-            modal.style.display = 'none';
+        console.log(document.getElementById('winner-modal').classList);
+        document.getElementById('winner-modal').classList.remove('show-modal');
     }
  };

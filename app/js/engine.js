@@ -32,26 +32,31 @@ let Engine = (function(global) {
     // update entities on the screen.  Request Animation Frame is used to keep the loop going
     // and stay performant.
     function gameLoop() {
+        console.log("iconDeck.remainingCards", iconDeck.remainingCards);
         // call update
         update();
         // RAF
         requestAnimationId = requestAnimationFrame(gameLoop);
         /*Check for a win condition in variable remainingCards*/
         if (iconDeck.remainingCards === 0) {
-        	// stop the gameLoop
-        	win.cancelAnimationFrame(requestAnimationId);
-        	// remove interaction with the table listener
-        	removeListener();	
+            // stop the gameLoop
+            win.cancelAnimationFrame(requestAnimationId);
+            // remove interaction with the table listener
+            removeListener();
             // Get the data necessary for display on modal
-            winnerModal.saveWinningData(moveCounterElem, timerElem, starRatingElem);
+            winnerModal.saveWinningData(moveCounterElem, 
+                                        timerElem,
+                                        starRatingElem);
             // Update the modal with game state data
-            winnerModal.updateModalContent(winnerModal.finalMoveCount, 
-            							   winnerModal.finalTime,
-            							   winnerModal.finalStarRating);
+            winnerModal.updateModalContent(winnerModal.finalMoveCount,
+                winnerModal.finalTime,
+                winnerModal.finalStarRating);
             // show modal
             winnerModal.displayModal();
             // attach event listener to close button, call init
             modalCloseIcon.addEventListener('click', function() {
+                // close the modal
+                doc.getElementById('winner-modal').classList.remove('show-modal');
                 // restart the game
                 init();
             }, false);
@@ -60,13 +65,23 @@ let Engine = (function(global) {
 
     // init is a function used to set the game up
     function init() {
-        console.log('worked');
-        // close the modal
-        winnerModal.closeModal();
-    	// clear previous winner data
-    	winnerModal.resetWinningData();
-        // clear previous gameBoard
-        gameBoardHTML.innerHTML = '';
+        // if remaining cards are 0 a game has been run and data needs to be reset
+        if (iconDeck.remainingCards === 0) {
+            // clear previous winner data
+            winnerModal.resetWinningData();
+            // clear previous gameBoard
+            gameBoardHTML.innerHTML = '';
+            // reset moveCount
+            moveCount.currentMoveCount = 0;
+            // reset timer
+            timer.minutes = 0;
+            timer.seconds = 0;
+            // reset star rating
+            starRating.currentStarRating = 3;
+            // reset remaining cards so win condiditon is not triggered until the
+            // next game is played
+            iconDeck.remainingCards = 16;
+        }
         // here we set the newDeck variable to a freshly shuffled arr of icon objs
         newDeck = iconDeck.createDeck(iconDeck.fAArr);
         //this call builds the table with innerhtml of cells set to a shuffled icon
@@ -89,12 +104,12 @@ let Engine = (function(global) {
 
     // The update function handles the manipulation of values that are changed based on user actions
     function update() {
-    	// if reset button is clicked call init
-    	if (resetButton.restartGame === true) {
-    		resetButton.restartGame = false;
-    		resetButton.clearGameData(moveCounterElem, timerElem, starRatingElem, gameBoardHTML);
-    		init();
-    	}
+        // if reset button is clicked call init
+        if (resetButton.restartGame === true) {
+            resetButton.restartGame = false;
+            resetButton.clearGameData(moveCounterElem, timerElem, starRatingElem, gameBoardHTML);
+            init();
+        }
         //  keep setting current time of timer obj on every loop
         timer.getCurrentTime();
         // kick off the timer after mouseup of the first move.
