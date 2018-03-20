@@ -33,8 +33,6 @@ let Engine = (function(global) {
     function gameLoop() {
         // call update
         update();
-        // call draw
-        draw();
         // RAF
         requestAnimationId = requestAnimationFrame(gameLoop);
         /*Check for a win condition in variable remainingCards*/
@@ -151,12 +149,6 @@ let Engine = (function(global) {
         }
         // update the displayed number in the counter element.
         moveCount.updateDOM(moveCounterElem);
-    }
-
-    // The draw function will change the state of enitities on the screen based on the updated
-    // values assigned to different entities in the update function.
-    function draw() {
-        // update the screen IS THIS NECESSARY?
     }
 
     // call init() as soon as the window has finished loading
