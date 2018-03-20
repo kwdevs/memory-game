@@ -3,6 +3,7 @@
 <html>
 
 <head>
+
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width" initial-scale=1>
@@ -10,62 +11,63 @@
 	<meta name="description" content='Flip to Win Is the best card game you can play solo! Flip cards, find matches, Win!'>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 	<link rel="stylesheet" href="css/main.css">
+	
 </head>
 
 <body id='body'>
 
-		<!-- Header has page title text and the reset button -->
-		<header class="header grid">
-			<h1 id="header-text">Concentration</h1>
-		</header>
+	<!-- Header has page title text and the reset button -->
+	<header class="header grid">
+		<h1 id="header-text">Concentration</h1>
+	</header>
 
-		<hr class="hr header-bottom-hr">
+	<hr class="hr header-bottom-hr">
 
-		<!-- This is the scoreboard labels section. Holds titles for game metrics. -->
-		<section class="scoreboard-labels">
-			<p id="moves-lable" class="labels">Moves</p>
-			<p id="timer-lable" class="labels">Timer</p>
-			<p id="rating-label" class="labels">Rating</p>
-		</section>
-		
-		<!-- This is the scoreboard section. Holds game stats. -->
-		<section class="scoreboard grid">
-			<div id="move-counter"></div>
-			<div id="timer"></div>
-			<div id="star-rating"></div>
-		</section>
+	<!-- This is the scoreboard labels section. Holds titles for game metrics. -->
+	<section class="scoreboard-labels">
+		<p id="moves-lable" class="labels">Moves</p>
+		<p id="timer-lable" class="labels">Timer</p>
+		<p id="rating-label" class="labels">Rating</p>
+	</section>
+	
+	<!-- This is the scoreboard section. Holds game stats. -->
+	<section class="scoreboard grid">
+		<div id="move-counter"></div>
+		<div id="timer"></div>
+		<div id="star-rating"></div>
+	</section>
 
-		<hr class="hr scores-hr">
-		
-		<!-- The gameboard is a table created in/appended in JS -->
-		<section id="gameboard" class="grid"></section>
+	<hr class="hr scores-hr">
+	
+	<!-- The gameboard is a table created in/appended in JS -->
+	<section id="gameboard" class="grid"></section>
 
-		<hr class="hr footer-hr">
+	<hr class="hr footer-hr">
 
-		<!-- The modal is hidden by default, shown when a user wins the game. -->
-	<!-- 	<section id="winner-modal" class="modal">
-			<div class="modal-body">
-				<span id="close-button" class="close">&times;</span>
-				<div id="results-container">
-					<p id="winning-move-count">			
-					</p>
-					<p id="winning-time">		
-					</p>
-					<p id="winning-star-rating">		
-					</p>
-				</div>
+	<!-- The modal is hidden by default, shown when a user wins the game. -->
+	<section id="winner-modal" class="modal">
+		<div class="modal-body">
+			<span id="close-button" class="close">&times;</span>
+			<div id="results-container">
+				<p id="winning-move-count">
+				</p>
+				<p id="winning-time">
+				</p>
+				<p id="winning-star-rating">
+				</p>
 			</div>
-		</section> -->
+		</div>
+	</section>
 
-	<!-- The footer is for style. -->
-	<footer class="footer grid">
-			<div id="reset-button"></div>
-	</footer>
+<!-- The footer is for style. -->
+<footer class="footer grid">
+		<div id="reset-button"></div>
+</footer>
 
-	<!-- app scripts -->
-	<script src="js/helper.js"></script>
-	<script src="js/app.js"></script>
-	<script src="js/engine.js"></script>
+<!-- app scripts -->
+<script src="js/helper.js"></script>
+<script src="js/app.js"></script>
+<script src="js/engine.js"></script>
 
 </body>
 
