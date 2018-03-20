@@ -145,7 +145,67 @@ td {
 }
 
 /*Tablet Portrait (600 - 899px)*/
+@media (min-width: 600px) and (max-width: 899px) {
+	
+	body {
+		font-size: 2.2em;
+	}
 
-/*Tablet Landscape (900 - 1200px)*/
+	table, tbody {
+		height: 740px;
+		width: 100%;
+	}
+	
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(1fr, 4);
+	}
 
-/*Desktop (1200 - 1800px)
+	.header,
+	.gameboard,
+	.footer {
+		grid-column: 1/4;
+	}
+
+	.labels {
+		padding-bottom: 20px;
+	}
+
+}
+
+/*Tablet Landscape (900 - 1199px)*/
+
+@media (min-width: 900px) and (max-width: 1199px) {
+	
+	body {
+		font-size: 1.6em;
+	}
+	
+	table, tbody {
+		height: 580px;
+		width: 60%;
+	}
+	
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(1fr, 4);
+	}
+
+	.header,
+	.footer {
+		grid-column: 1/4;
+	}
+
+	.gameboard {
+		display: block;
+	}
+
+	.labels {
+		padding-bottom: 15px;
+	}
+}
+
+/*Desktop (1200 - 1800px)*/
+@media (min-width: 1200px) {
+
+}
