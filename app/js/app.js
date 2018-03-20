@@ -313,5 +313,10 @@ const resetButton = {
  	displayModal: function () {
  		let modal = document.getElementById('winner-modal');
  			modal.style.display = 'flex';
- 	}
+ 	},
+
+    closeModal: function () {
+        let modal = document.getElementById('winner-modal');
+            modal.style.display = 'none';
+    }
  };

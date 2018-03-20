@@ -21,6 +21,7 @@ let Engine = (function(global) {
     let timerElem = doc.getElementById('timer');
     let starRatingElem = doc.getElementById('star-rating');
     let resetIcon = doc.getElementById('reset-button');
+    let modalCloseIcon = doc.getElementById('close-button');
 
 
     // this variable hold are array of objs that handle everything to do with the deck.
@@ -49,14 +50,23 @@ let Engine = (function(global) {
             							   winnerModal.finalStarRating);
             // show modal
             winnerModal.displayModal();
-            return;
+            // attach event listener to close button, call init
+            modalCloseIcon.addEventListener('click', function() {
+                // restart the game
+                init();
+            }, false);
         }
     }
 
     // init is a function used to set the game up
     function init() {
+        console.log('worked');
+        // close the modal
+        winnerModal.closeModal();
     	// clear previous winner data
     	winnerModal.resetWinningData();
+        // clear previous gameBoard
+        gameBoardHTML.innerHTML = '';
         // here we set the newDeck variable to a freshly shuffled arr of icon objs
         newDeck = iconDeck.createDeck(iconDeck.fAArr);
         //this call builds the table with innerhtml of cells set to a shuffled icon
