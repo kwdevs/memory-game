@@ -32,7 +32,6 @@ let Engine = (function(global) {
     // update entities on the screen.  Request Animation Frame is used to keep the loop going
     // and stay performant.
     function gameLoop() {
-        console.log("iconDeck.remainingCards", iconDeck.remainingCards);
         // call update
         update();
         // RAF
