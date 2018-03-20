@@ -164,6 +164,11 @@ function addResetButton() {
 	document.getElementById('reset-button').addEventListener('click', resetButton.resetGame)
 }
 
+// fn to attach listener to close button to restart game
+// function modalReset() {
+//     document.getElementById('close-button').addEventListener('click', resetButton.resetGame);
+// }
+
 // using named function inside listener so I can remove it later easily
 let eventResponses =
     function(event) {

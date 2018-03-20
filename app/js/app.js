@@ -274,7 +274,7 @@ const resetButton = {
     	starRating.tempMoveCount = 0;
     	gameBoardHTML.innerHTML = '';
     	iconDeck.currentPair = [];
-
+        iconDeck.remainingCards = 16;
     }
 };
 
@@ -305,13 +305,17 @@ const resetButton = {
  		let timerElem = document.getElementById('winning-time');
  		let ratingElem = document.getElementById('winning-star-rating');
  		// insert necessary data
- 		moveCountElem.innerText = moveCount;
+ 		moveCountElem.innerText = `${moveCount} Moves`;
  		timerElem.innerText = time;
  		ratingElem.innerHTML = starRating;
  	},
 
  	displayModal: function () {
- 		let modal = document.getElementById('winner-modal');
- 			modal.style.display = 'flex';
- 	}
+ 		document.getElementById('winner-modal').classList.add('show-modal');			
+ 	},
+
+    closeModal: function () {
+        console.log(document.getElementById('winner-modal').classList);
+        document.getElementById('winner-modal').classList.remove('show-modal');
+    }
  };

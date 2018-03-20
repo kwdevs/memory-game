@@ -21,6 +21,7 @@ let Engine = (function(global) {
     let timerElem = doc.getElementById('timer');
     let starRatingElem = doc.getElementById('star-rating');
     let resetIcon = doc.getElementById('reset-button');
+    let modalCloseIcon = doc.getElementById('close-button');
 
 
     // this variable hold are array of objs that handle everything to do with the deck.
@@ -33,36 +34,53 @@ let Engine = (function(global) {
     function gameLoop() {
         // call update
         update();
-        // call draw
-        draw();
         // RAF
         requestAnimationId = requestAnimationFrame(gameLoop);
         /*Check for a win condition in variable remainingCards*/
         if (iconDeck.remainingCards === 0) {
-        	// stop the gameLoop
-        	win.cancelAnimationFrame(requestAnimationId);
-        	// remove interaction with the table listener
-        	removeListener();	
+            // stop the gameLoop
+            win.cancelAnimationFrame(requestAnimationId);
+            // remove interaction with the table listener
+            removeListener();
             // Get the data necessary for display on modal
-            winnerModal.saveWinningData(moveCounterElem, timerElem, starRatingElem);
-            // log the data
-            console.log("winnerModal.finalStarRating", winnerModal.finalStarRating);
- 			console.log("winnerModal.finalTime", winnerModal.finalTime);
- 			console.log("winnerModal.finalMoveCount", winnerModal.finalMoveCount);
+            winnerModal.saveWinningData(moveCounterElem, 
+                                        timerElem,
+                                        starRatingElem);
             // Update the modal with game state data
-            winnerModal.updateModalContent(winnerModal.finalMoveCount, 
-            							   winnerModal.finalTime,
-            							   winnerModal.finalStarRating);
+            winnerModal.updateModalContent(winnerModal.finalMoveCount,
+                winnerModal.finalTime,
+                winnerModal.finalStarRating);
             // show modal
             winnerModal.displayModal();
-            return;
+            // attach event listener to close button, call init
+            modalCloseIcon.addEventListener('click', function() {
+                // close the modal
+                doc.getElementById('winner-modal').classList.remove('show-modal');
+                // restart the game
+                init();
+            }, false);
         }
     }
 
     // init is a function used to set the game up
     function init() {
-    	// clear previous winner data
-    	winnerModal.resetWinningData();
+        // if remaining cards are 0 a game has been run and data needs to be reset
+        if (iconDeck.remainingCards === 0) {
+            // clear previous winner data
+            winnerModal.resetWinningData();
+            // clear previous gameBoard
+            gameBoardHTML.innerHTML = '';
+            // reset moveCount
+            moveCount.currentMoveCount = 0;
+            // reset timer
+            timer.minutes = 0;
+            timer.seconds = 0;
+            // reset star rating
+            starRating.currentStarRating = 3;
+            // reset remaining cards so win condiditon is not triggered until the
+            // next game is played
+            iconDeck.remainingCards = 16;
+        }
         // here we set the newDeck variable to a freshly shuffled arr of icon objs
         newDeck = iconDeck.createDeck(iconDeck.fAArr);
         //this call builds the table with innerhtml of cells set to a shuffled icon
@@ -85,12 +103,12 @@ let Engine = (function(global) {
 
     // The update function handles the manipulation of values that are changed based on user actions
     function update() {
-    	// if reset button is clicked call init
-    	if (resetButton.restartGame === true) {
-    		resetButton.restartGame = false;
-    		resetButton.clearGameData(moveCounterElem, timerElem, starRatingElem, gameBoardHTML);
-    		init();
-    	}
+        // if reset button is clicked call init
+        if (resetButton.restartGame === true) {
+            resetButton.restartGame = false;
+            resetButton.clearGameData(moveCounterElem, timerElem, starRatingElem, gameBoardHTML);
+            init();
+        }
         //  keep setting current time of timer obj on every loop
         timer.getCurrentTime();
         // kick off the timer after mouseup of the first move.
@@ -151,12 +169,6 @@ let Engine = (function(global) {
         }
         // update the displayed number in the counter element.
         moveCount.updateDOM(moveCounterElem);
-    }
-
-    // The draw function will change the state of enitities on the screen based on the updated
-    // values assigned to different entities in the update function.
-    function draw() {
-        // update the screen IS THIS NECESSARY?
     }
 
     // call init() as soon as the window has finished loading

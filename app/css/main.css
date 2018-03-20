@@ -131,6 +131,10 @@ td {
 	text-decoration: none;
 }
 
+.show-modal {
+	display: flex;
+}
+
 /*Toggle classes to show cards when clicked.*/
 .show-card {
 	display: block;
@@ -144,4 +148,4 @@ td {
 
 /*Tablet Landscape (900 - 1200px)*/
 
-/*Desktop (1200 - 1800px)*/
+/*Desktop (1200 - 1800px)
