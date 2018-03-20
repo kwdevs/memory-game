@@ -305,7 +305,7 @@ const resetButton = {
  		let timerElem = document.getElementById('winning-time');
  		let ratingElem = document.getElementById('winning-star-rating');
  		// insert necessary data
- 		moveCountElem.innerText = moveCount;
+ 		moveCountElem.innerText = `${moveCount} Moves`;
  		timerElem.innerText = time;
  		ratingElem.innerHTML = starRating;
  	},
