@@ -18,7 +18,7 @@ body {
 	   				-moz-box-sizing: border-box;
 	        		box-sizing: border-box;
 	font-family: Arial, Helvetica, sans-serif;
-	margin: 0;
+	margin: 20px 0;
 	overflow: hidden;
 	text-align: center;
 	width: 100%;
@@ -44,14 +44,13 @@ p {
 .scoreboard,
 .scoreboard-labels {
 	display: flex;
-	font-size: 1.2em;
 }
 .scoreboard-labels > p {
 	text-decoration: underline;
-	width: 33%;
+	width: 33.3%;
 }
 .scoreboard > div {
-	width: 33%;
+	width: 33.3%;
 }
 
 /*Game Table*/
@@ -74,18 +73,14 @@ td {
 /*Footer*/
 
 .footer {
-/*	bottom: 0;*/
-	font-size: 1.7em;
+	font-size: 1.5em;
 	height: 50px;
-/*	left: 0;
-	position: fixed;
-	width: 100%;*/
 }
 
 /*Modal*/
 .modal {
 	background-color: rgba(0,0,0,0.8);
-	display: none;
+	display: flex;
 	height: 100%;
 	left: 0;
 	position: fixed;
@@ -101,10 +96,10 @@ td {
 	border: 3px solid black;
 	margin: 20% auto;
 	width: 80%;
-
 }
 
 .modal-results-container {
+	padding-top: 3.5em;
 	color: #fff;
 }
 
@@ -145,7 +140,102 @@ td {
 }
 
 /*Tablet Portrait (600 - 899px)*/
+@media (min-width: 600px) and (max-width: 899px) {
+	
+	body {
+		font-size: 1.4em;
+	}
 
-/*Tablet Landscape (900 - 1200px)*/
+	table, tbody {
+		height: 740px;
+		width: 100%;
+	}
+	
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(1fr, 4);
+	}
 
-/*Desktop (1200 - 1800px)
+	.header,
+	.gameboard,
+	.footer {
+		grid-column: 1/4;
+	}
+
+	.labels {
+		padding-bottom: 20px;
+	}
+
+}
+
+/*Tablet Landscape (900 - 1199px)*/
+
+@media (min-width: 900px) and (max-width: 1199px) {
+	
+	body {
+		font-size: 1em;
+		margin: 0;
+	}
+	
+	table, tbody {
+		height: 580px;
+		padding: 5px 200px;
+	}
+
+	.modal-body {
+		margin: 17% auto;
+		width: 60%;
+	}
+	
+	.modal-results-container {
+		padding-top: 0;
+	}
+
+}
+
+/*Laptop (1200 - 1800px)*/
+@media (min-width: 1200px) and (max-width: 1799px) {
+	
+	body {
+		font-size: 1.2em;
+		margin: 0;
+	}
+
+	table, tbody {
+		height: 500px;
+		padding: 0px 300px;
+	}
+
+	.modal-body {
+		margin: 10% auto;
+		width: 60%;
+	}
+	
+	.modal-results-container {
+		padding-top: 0;
+	}
+
+}
+
+/*over 1800*/
+@media (min-width: 1800px) {
+	
+	body {
+		font-size: 1.4em;
+	}
+
+	table, tbody {
+		height: 700px;
+		padding: 0px 450px;
+	}
+
+	.modal-body {
+		margin: 10% auto;
+		width: 40%;
+	}
+	
+	.modal-results-container {
+		padding-top: 40px;
+	}
+
+}
