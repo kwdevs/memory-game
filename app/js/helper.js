@@ -14,7 +14,7 @@ function createTable(row, col, deck) {
     let tableBody = document.createElement('tbody');
 
     table.setAttribute('id', 'table');
-    tableBody.setAttribute('id', 'tableBody');
+    tableBody.setAttribute('id', 'table-body');
 
     // use a nested for loop to create cells, gameboard is 4x4.
     // index is declared outside the for loop to prevent it's value being reset
@@ -34,10 +34,8 @@ function createTable(row, col, deck) {
             // I wanted this outside the for loop but it would only append to last td created.
             let wrapperDiv = document.createElement('div');
             wrapperDiv.innerHTML = currentDeck[index].tileIcon;
-            // add id
-            wrapperDiv.id = index;
             // add display none by default
-            wrapperDiv.classList.add('hideCard', 'default');
+            wrapperDiv.classList.add('hide-card');
             // create a new cell and append wrapper div containing FA icon.
             let newCell = newRow.insertCell(cell);
             newCell.appendChild(wrapperDiv);
@@ -46,43 +44,136 @@ function createTable(row, col, deck) {
         }
     }
 
-
-    console.log("table", table);
     return table;
 }
 
 // this function will listen for clicks on the able and set the correct td's parent div to display the icon
-function flipTile(event) {
+function showIcon(event) {
 
     // get the div to toggle display style on
     let tileDiv = event.target.firstChild;
 
     // if the icon is hidden, then show it.
-    if (tileDiv.classList.contains('hideCard')) {
+    if (tileDiv.classList.contains('hide-card')) {
 
-        tileDiv.classList.replace('hideCard', 'showCard');
+        tileDiv.classList.replace('hide-card', 'show-card');
     }
 }
 
-//this is the callback function to keep track of the number of clicks and update currentMoveCount of the MoveCount
-//obj
+// function to hide icons if determined not to match
+function hideIcons() {
+    let firstIcon = document.getElementById('first-icon-selected');
 
-// function incrementMoveCount(event) {
-// check that the tile that was clicked is not already clicked. Adding this check
-// will prevent incrementation of the currentMoveCount property being incremented when
-// an already shown icon is clicked again
-// let checkIfIconIsShowing = event.target.firstChild.classList.contains('showCard');
-// let checkIfIconIsHidden = event.target.firstChild.classList.contains('hideCard');
+    let secondIcon = document.getElementById('second-icon-selected');
 
-// if (checkIfIconIsShowing) {
-//     return;
-// }
-// if (checkIfIconIsHidden) {
-// 	return moveCount.currentMoveCount += 1;
-// }
-// }
-
-// function addListeners is used to kick off all necessary event listeners in the init stage of engine.js
-function addListeners() {
-    document.addEventListener(flipTile(event));
+    setTimeout(function() {
+        firstIcon.classList.replace('show-card', 'hide-card');
+        secondIcon.classList.replace('show-card', 'hide-card');
+        firstIcon.id = '';
+        secondIcon.id = '';
+        addListener();
+    }, 2000);
 }
+
+// store the selected icons in an array that can only have 2 elements
+function storeSelectedIconInfo(event) {
+
+    // get the class of the selected icon and push it to iconDeck.currentPair
+    let tempIconClass = event.target.firstChild.firstChild.classList[1];
+    iconDeck.currentPair.push(tempIconClass);
+}
+
+// fn to add an id to an icon's div
+function addIdToIconContainer(event) {
+
+    let selectedIcon = event.target.firstChild;
+
+    if (iconDeck.currentPair.length === 0) {
+        selectedIcon.id = iconDeck.firstIconSelected;
+    } else if (iconDeck.currentPair.length === 1) {
+        selectedIcon.id = iconDeck.secondIconSelected;
+    }
+}
+
+// fn to remove an id from an icon's div
+
+// this function compares the tiles and returns true or false
+function compareTiles(array) {
+
+    if (array[0] == array[1]) {
+        // clear out our matching array.
+        clearCurrentPair();
+        removeSelectedIconsId();
+        iconDeck.remainingCards -= 2;
+        return;
+    } else if (array[0] !== array[1]) {
+        // this will limit the users ability to rapidly click more cards
+        // reattached in hideIcon()
+        removeListener();
+        // flips tiles back over, pass in class name of selected icons
+        hideIcons();
+        // clear currentPair array
+        clearCurrentPair();
+    }
+}
+
+// called by compare tiles to remove id's after a successful match of icons
+function removeSelectedIconsId() {
+
+    let firstIcon = document.getElementById('first-icon-selected');
+    let secondIcon = document.getElementById('second-icon-selected');
+
+    firstIcon.id = '';
+    secondIcon.id = '';
+}
+
+// this helper fn decreases number of cards in deck
+function decrementRemainingCards(num) {
+    return num - 2;
+
+}
+
+// helper fn to clear currentPair array
+function clearCurrentPair() {
+    iconDeck.currentPair = [];
+    return;
+}
+
+// fn to call to apply batch of listeners
+function addListener() {
+    document.getElementById('table').addEventListener('click', eventResponses);
+}
+
+// fn to call when removing batch of listener during time delays or animation
+function removeListener() {
+    document.getElementById('table').removeEventListener('click', eventResponses);
+}
+
+// fn to call when adding timer listener
+function addTimerListener() {
+    document.getElementById('table').addEventListener('mouseup', timer.getStartTime);
+}
+
+// fn remove timer listener
+function removeStartTimeListener() {
+    document.getElementById('table').removeEventListener('mouseup', timer.getStartTime);
+}
+
+// fn to set listener on reset button
+function addResetButton() {
+	document.getElementById('reset-button').addEventListener('click', resetButton.resetGame)
+}
+
+// fn to attach listener to close button to restart game
+// function modalReset() {
+//     document.getElementById('close-button').addEventListener('click', resetButton.resetGame);
+// }
+
+// using named function inside listener so I can remove it later easily
+let eventResponses =
+    function(event) {
+        moveCount.updateMoveCount(event);
+        addIdToIconContainer(event);
+        storeSelectedIconInfo(event);
+        showIcon(event);
+    };

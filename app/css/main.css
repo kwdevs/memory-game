@@ -1,31 +1,151 @@
+/*Initial styles for mobiles (0 - 599px)*/
+html,
 body {
-	margin: 0; 
+	height: 100%;
 }
 
-table, tbody {
-	background-color: #000;
-	height: 500px;
-	width: 500px;
+html {
+	background: url(../images/wood-sm.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
-tbody, td {
-	border: 1px solid black;
-	height: 125px;
-	width: 125px;
+body {
+	color: white;
+	display: block; -webkit-box-sizing: border-box;
+	   				-moz-box-sizing: border-box;
+	        		box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	overflow: hidden;
+	text-align: center;
+	width: 100%;
 }
 
-td {
-	background-color: #E85D16FF;
+/*Header*/
+
+header {
+	padding-top: 10px;
 	text-align: center;
 }
 
+h1 {
+	margin: 0;
+}
 
-/*Used for testing card flipping*/
+/*Scoreboard*/
 
-.showCard {
+p {
+	margin: 0;
+}
+
+.scoreboard,
+.scoreboard-labels {
+	display: flex;
+	font-size: 1.2em;
+}
+.scoreboard-labels > p {
+	text-decoration: underline;
+	width: 33%;
+}
+.scoreboard > div {
+	width: 33%;
+}
+
+/*Game Table*/
+
+table {
+	padding-top: 10px 0;
+}
+
+table, tbody {
+	height: 320px;
+	width: 100%;
+}
+
+td {
+	border: 1px solid white;
+	height: 25%;
+	width: 25%;
+}
+
+/*Footer*/
+
+.footer {
+/*	bottom: 0;*/
+	font-size: 1.7em;
+	height: 50px;
+/*	left: 0;
+	position: fixed;
+	width: 100%;*/
+}
+
+/*Modal*/
+.modal {
+	background-color: rgba(0,0,0,0.8);
+	display: none;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 100%;
+	z-index: 101;
+	overflow: auto;
+}
+
+.modal-body {
+	background-color: #3f3f3f;
+	border: 3px solid black;
+	margin: 20% auto;
+	width: 80%;
+
+}
+
+.modal-results-container {
+	color: #fff;
+}
+
+.results {
+	display: block;
+	font-size: 2em;
+	margin: 20px;
+	padding: 18px 18px;
+	text-align: center;
+
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.show-modal {
+	display: flex;
+}
+
+/*Toggle classes to show cards when clicked.*/
+.show-card {
 	display: block;
 }
 
-.hideCard {
+.hide-card {
 	display: none;
 }
+
+/*Tablet Portrait (600 - 899px)*/
+
+/*Tablet Landscape (900 - 1200px)*/
+
+/*Desktop (1200 - 1800px)
