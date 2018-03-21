@@ -69,13 +69,15 @@ let Engine = (function(global) {
             // clear previous winner data
             winnerModal.resetWinningData();
 
-            resetButton.clearGameData(moveCounterElem, timerElem, starRatingElem, gameBoardHTML);
+            resetButton.clearGameData(moveCounterElem, timerElem, starRatingElem);
         }
 
         // here we set the newDeck variable to a freshly shuffled arr of icon objs
         newDeck = iconDeck.createDeck(iconDeck.fAArr);
         //this call builds the table with innerhtml of cells set to a shuffled icon
         newGameBoard = gameBoard.createGameBoard(newDeck);
+        // clear html. Clearing html here fixes table appending bug.
+        gameBoardHTML.innerHTML = '';
         // add the table to the section element
         gameBoardHTML.append(newGameBoard);
         // add the initial star rating to DOM
