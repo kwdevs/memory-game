@@ -72,7 +72,7 @@ function hideIcons() {
         firstIcon.id = '';
         secondIcon.id = '';
         addListener();
-    }, 2000);
+    }, 1200);
 }
 
 // store the selected icons in an array that can only have 2 elements
