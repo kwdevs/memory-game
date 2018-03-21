@@ -43,7 +43,7 @@ let Engine = (function(global) {
             // remove interaction with the table listener
             removeListener();
             // Get the data necessary for display on modal
-            winnerModal.saveWinningData(moveCounterElem, 
+            winnerModal.saveWinningData(moveCounterElem,
                                         timerElem,
                                         starRatingElem);
             // Update the modal with game state data
@@ -68,19 +68,10 @@ let Engine = (function(global) {
         if (iconDeck.remainingCards === 0) {
             // clear previous winner data
             winnerModal.resetWinningData();
-            // clear previous gameBoard
-            gameBoardHTML.innerHTML = '';
-            // reset moveCount
-            moveCount.currentMoveCount = 0;
-            // reset timer
-            timer.minutes = 0;
-            timer.seconds = 0;
-            // reset star rating
-            starRating.currentStarRating = 3;
-            // reset remaining cards so win condiditon is not triggered until the
-            // next game is played
-            iconDeck.remainingCards = 16;
+
+            resetButton.clearGameData(moveCounterElem, timerElem, starRatingElem, gameBoardHTML);
         }
+
         // here we set the newDeck variable to a freshly shuffled arr of icon objs
         newDeck = iconDeck.createDeck(iconDeck.fAArr);
         //this call builds the table with innerhtml of cells set to a shuffled icon
