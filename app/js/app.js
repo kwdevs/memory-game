@@ -265,14 +265,13 @@ const resetButton = {
         resetButton.restartGame = true;
     },
 
-    clearGameData: function (moveCounterElem, timerElem, starRatingElem, gameBoardHTML) {
+    clearGameData: function (moveCounterElem, timerElem, starRatingElem) {
     	moveCount.currentMoveCount = 0;
     	timer.minutes = 0;
     	timer.seconds = 0;
     	starRating.currentStarRating = 3;
     	starRating.checkedStarRating = false;
     	starRating.tempMoveCount = 0;
-    	gameBoardHTML.innerHTML = '';
     	iconDeck.currentPair = [];
         iconDeck.remainingCards = 16;
     }
@@ -280,7 +279,7 @@ const resetButton = {
 
 // win modal object
  const winnerModal = {
- 	
+
  	finalMoveCount: 0,
 
  	finalTime: 0,
@@ -311,7 +310,7 @@ const resetButton = {
  	},
 
  	displayModal: function () {
- 		document.getElementById('winner-modal').classList.add('show-modal');			
+ 		document.getElementById('winner-modal').classList.add('show-modal');
  	},
 
     closeModal: function () {

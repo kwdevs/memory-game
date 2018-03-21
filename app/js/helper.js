@@ -21,7 +21,7 @@ function createTable(row, col, deck) {
     // so the arrOfObjs 'currentDeck' is fully cycled through.
     let index = 0;
 
-    //The wrapper div encapsulates the icon html to give us quick access to toggle off/on the icon 
+    //The wrapper div encapsulates the icon html to give us quick access to toggle off/on the icon
     //display
 
 
@@ -72,7 +72,7 @@ function hideIcons() {
         firstIcon.id = '';
         secondIcon.id = '';
         addListener();
-    }, 2000);
+    }, 1200);
 }
 
 // store the selected icons in an array that can only have 2 elements
@@ -163,11 +163,6 @@ function removeStartTimeListener() {
 function addResetButton() {
 	document.getElementById('reset-button').addEventListener('click', resetButton.resetGame)
 }
-
-// fn to attach listener to close button to restart game
-// function modalReset() {
-//     document.getElementById('close-button').addEventListener('click', resetButton.resetGame);
-// }
 
 // using named function inside listener so I can remove it later easily
 let eventResponses =
