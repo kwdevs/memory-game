@@ -79,16 +79,17 @@ td {
 
 /*Modal*/
 .modal {
+	background-color: #000;
 	background-color: rgba(0,0,0,0.8);
 	display: none;
 	height: 100%;
 	left: 0;
+	overflow: auto;
 	position: fixed;
 	right: 0;
 	top: 0;
 	width: 100%;
 	z-index: 101;
-	overflow: auto;
 }
 
 .modal-body {
@@ -141,7 +142,7 @@ td {
 
 /*Tablet Portrait (600 - 899px)*/
 @media (min-width: 600px) and (max-width: 899px) {
-	
+
 	body {
 		font-size: 1.4em;
 	}
@@ -150,7 +151,7 @@ td {
 		height: 740px;
 		width: 100%;
 	}
-	
+
 	.grid {
 		display: grid;
 		grid-template-columns: repeat(1fr, 4);
@@ -171,12 +172,12 @@ td {
 /*Tablet Landscape (900 - 1199px)*/
 
 @media (min-width: 900px) and (max-width: 1199px) {
-	
+
 	body {
 		font-size: 1em;
 		margin: 0;
 	}
-	
+
 	table, tbody {
 		height: 580px;
 		padding: 5px 200px;
@@ -186,7 +187,7 @@ td {
 		margin: 17% auto;
 		width: 60%;
 	}
-	
+
 	.modal-results-container {
 		padding-top: 0;
 	}
@@ -195,7 +196,7 @@ td {
 
 /*Laptop (1200 - 1800px)*/
 @media (min-width: 1200px) and (max-width: 1799px) {
-	
+
 	body {
 		font-size: 1.2em;
 		margin: 0;
@@ -210,7 +211,7 @@ td {
 		margin: 10% auto;
 		width: 60%;
 	}
-	
+
 	.modal-results-container {
 		padding-top: 0;
 	}
@@ -219,7 +220,7 @@ td {
 
 /*over 1800*/
 @media (min-width: 1800px) {
-	
+
 	body {
 		font-size: 1.4em;
 	}
@@ -233,9 +234,8 @@ td {
 		margin: 10% auto;
 		width: 40%;
 	}
-	
+
 	.modal-results-container {
 		padding-top: 40px;
 	}
-
 }
