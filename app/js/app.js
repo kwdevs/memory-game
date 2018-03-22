@@ -1,8 +1,5 @@
 /*jshint esversion: 6 */
-
 /*This file will contain object literals, function factories to create objects, and their methods*/
-
-
 // setup gameboard object
 const gameBoard = {
 
@@ -253,68 +250,68 @@ const starRating = {
 // setup resetButton object
 const resetButton = {
 
-	restartGame: false,
+    restartGame: false,
 
     buttonHTML: '<i class="fas fa-redo"></i>',
 
-    updateDOM: function (element) {
-    	element.innerHTML = resetButton.buttonHTML;
+    updateDOM: function(element) {
+        element.innerHTML = resetButton.buttonHTML;
     },
 
     resetGame: function(event) {
         resetButton.restartGame = true;
     },
 
-    clearGameData: function (moveCounterElem, timerElem, starRatingElem) {
-    	moveCount.currentMoveCount = 0;
-    	timer.minutes = 0;
-    	timer.seconds = 0;
-    	starRating.currentStarRating = 3;
-    	starRating.checkedStarRating = false;
-    	starRating.tempMoveCount = 0;
-    	iconDeck.currentPair = [];
+    clearGameData: function(moveCounterElem, timerElem, starRatingElem) {
+        moveCount.currentMoveCount = 0;
+        timer.minutes = 0;
+        timer.seconds = 0;
+        starRating.currentStarRating = 3;
+        starRating.checkedStarRating = false;
+        starRating.tempMoveCount = 0;
+        iconDeck.currentPair = [];
         iconDeck.remainingCards = 16;
     }
 };
 
 // win modal object
- const winnerModal = {
+const winnerModal = {
 
- 	finalMoveCount: 0,
+    finalMoveCount: 0,
 
- 	finalTime: 0,
+    finalTime: 0,
 
- 	finalStarRating: '',
+    finalStarRating: '',
 
- 	saveWinningData: function (moveCountElem, timerElem, starRatingElem) {
- 		winnerModal.finalMoveCount = moveCountElem.innerText;
- 		winnerModal.finalTime = timerElem.innerText;
- 		winnerModal.finalStarRating = starRatingElem.innerHTML;
- 	},
+    saveWinningData: function(moveCountElem, timerElem, starRatingElem) {
+        winnerModal.finalMoveCount = moveCountElem.innerText;
+        winnerModal.finalTime = timerElem.innerText;
+        winnerModal.finalStarRating = starRatingElem.innerHTML;
+    },
 
- 	resetWinningData: function () {
- 		winnerModal.finalMoveCount = 0;
- 		winnerModal.finalTime = 0;
- 		winnerModal.finalStarRating = '';
- 	},
+    resetWinningData: function() {
+        winnerModal.finalMoveCount = 0;
+        winnerModal.finalTime = 0;
+        winnerModal.finalStarRating = '';
+    },
 
- 	updateModalContent: function (moveCount, time, starRating) {
- 		// get the elements to update
- 		let moveCountElem = document.getElementById('winning-move-count');
- 		let timerElem = document.getElementById('winning-time');
- 		let ratingElem = document.getElementById('winning-star-rating');
- 		// insert necessary data
- 		moveCountElem.innerText = `${moveCount} Moves`;
- 		timerElem.innerText = time;
- 		ratingElem.innerHTML = starRating;
- 	},
+    updateModalContent: function(moveCount, time, starRating) {
+        // get the elements to update
+        let moveCountElem = document.getElementById('winning-move-count');
+        let timerElem = document.getElementById('winning-time');
+        let ratingElem = document.getElementById('winning-star-rating');
+        // insert necessary data
+        moveCountElem.innerText = `${moveCount} Moves`;
+        timerElem.innerText = time;
+        ratingElem.innerHTML = starRating;
+    },
 
- 	displayModal: function () {
- 		document.getElementById('winner-modal').classList.add('show-modal');
- 	},
+    displayModal: function() {
+        document.getElementById('winner-modal').classList.add('show-modal');
+    },
 
-    closeModal: function () {
+    closeModal: function() {
         console.log(document.getElementById('winner-modal').classList);
         document.getElementById('winner-modal').classList.remove('show-modal');
     }
- };
+};

@@ -1,0 +1,13 @@
+let Engine=(function(global){const win=global;const doc=global.document;let requestAnimationId=0;let body=doc.getElementById('body');let header=doc.getElementById('header');let gameBoardHTML=doc.getElementById('gameboard');let moveCounterElem=doc.getElementById('move-counter');let timerElem=doc.getElementById('timer');let starRatingElem=doc.getElementById('star-rating');let resetIcon=doc.getElementById('reset-button');let modalCloseIcon=doc.getElementById('close-button');let newDeck=[];let newGameBoard='';function gameLoop(){update();requestAnimationId=requestAnimationFrame(gameLoop);if(iconDeck.remainingCards===0){win.cancelAnimationFrame(requestAnimationId);removeListener();winnerModal.saveWinningData(moveCounterElem,timerElem,starRatingElem);winnerModal.updateModalContent(winnerModal.finalMoveCount,winnerModal.finalTime,winnerModal.finalStarRating);winnerModal.displayModal();modalCloseIcon.addEventListener('click',function(){doc.getElementById('winner-modal').classList.remove('show-modal');init();},false);}}
+function init(){if(iconDeck.remainingCards===0){winnerModal.resetWinningData();resetButton.clearGameData(moveCounterElem,timerElem,starRatingElem);}
+newDeck=iconDeck.createDeck(iconDeck.fAArr);newGameBoard=gameBoard.createGameBoard(newDeck);gameBoardHTML.innerHTML='';gameBoardHTML.append(newGameBoard);starRating.updateDOM(starRatingElem,starRating.currentStarRating);moveCount.updateDOM(moveCounterElem);resetButton.updateDOM(resetIcon);addListener();addTimerListener();addResetButton();gameLoop();}
+function update(){if(resetButton.restartGame===true){resetButton.restartGame=false;resetButton.clearGameData(moveCounterElem,timerElem,starRatingElem,gameBoardHTML);init();}
+timer.getCurrentTime();if(moveCount.currentMoveCount>=1){timer.keepTime();}
+timer.updateDOMTimer(timerElem);if(iconDeck.currentPair.length<2){iconDeck.checkedLastPair=false;}
+if(iconDeck.checkedLastPair===false&&iconDeck.currentPair.length===2){iconDeck.checkedLastPair=true;compareTiles(iconDeck.currentPair);}
+if(moveCount.currentMoveCount>starRating.tempMoveCount){starRating.tempMoveCount=moveCount.currentMoveCount;starRating.checkedStarRating=false;}
+if(starRating.checkedStarRating===false&&starRating.currentStarRating!=1){starRating.checkedStarRating=true;switch(moveCount.currentMoveCount){case 20:{starRating.currentStarRating-=1;starRating.updateDOM(starRatingElem,starRating.currentStarRating);break;}
+case 30:{starRating.currentStarRating-=1;starRating.updateDOM(starRatingElem,starRating.currentStarRating);break;}
+default:{break;}}}
+moveCount.updateDOM(moveCounterElem);}
+win.onload=init();})(this);

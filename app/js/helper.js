@@ -1,10 +1,7 @@
 /*jshint esversion: 6 */
-
 /* This file will hold helper functions that do very basic tasks to keep readability of app.js and engine.js
 clean
  */
-
-
 // This fn will create a table accepting row and column
 function createTable(row, col, deck) {
 
@@ -161,7 +158,7 @@ function removeStartTimeListener() {
 
 // fn to set listener on reset button
 function addResetButton() {
-	document.getElementById('reset-button').addEventListener('click', resetButton.resetGame)
+    document.getElementById('reset-button').addEventListener('click', resetButton.resetGame)
 }
 
 // using named function inside listener so I can remove it later easily

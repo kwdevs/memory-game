@@ -1,241 +1,189 @@
 /*Initial styles for mobiles (0 - 599px)*/
-html,
-body {
-	height: 100%;
+ html, body {
+     height: 100%;
 }
-
-html {
-	background: url(../images/wood-sm.jpg) no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+ html {
+     background: url(../images/wood-sm.jpg) no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
 }
-
-body {
-	color: white;
-	display: block; -webkit-box-sizing: border-box;
-	   				-moz-box-sizing: border-box;
-	        		box-sizing: border-box;
-	font-family: Arial, Helvetica, sans-serif;
-	margin: 20px 0;
-	overflow: hidden;
-	text-align: center;
-	width: 100%;
+ body {
+     color: white;
+     display: block;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+     font-family: Arial, Helvetica, sans-serif;
+     margin: 20px 0;
+     overflow: hidden;
+     text-align: center;
+     width: 100%;
 }
-
 /*Header*/
-
-header {
-	padding-top: 10px;
-	text-align: center;
+ header {
+     padding-top: 10px;
+     text-align: center;
 }
-
-h1 {
-	margin: 0;
+ h1 {
+     margin: 0;
 }
-
 /*Scoreboard*/
-
-p {
-	margin: 0;
+ p {
+     margin: 0;
 }
-
-.scoreboard,
-.scoreboard-labels {
-	display: flex;
+ .scoreboard, .scoreboard-labels {
+     display: flex;
 }
-.scoreboard-labels > p {
-	text-decoration: underline;
-	width: 33.3%;
+ .scoreboard-labels > p {
+     text-decoration: underline;
+     width: 33.3%;
 }
-.scoreboard > div {
-	width: 33.3%;
+ .scoreboard > div {
+     width: 33.3%;
 }
-
 /*Game Table*/
-
-table {
-	padding-top: 10px 0;
+ table {
+     padding-top: 10px;
 }
-
-table, tbody {
-	height: 320px;
-	width: 100%;
+ table, tbody {
+     height: 320px;
+     width: 100%;
 }
-
-td {
-	border: 1px solid white;
-	height: 25%;
-	width: 25%;
+ td {
+     border: 1px solid white;
+     height: 25%;
+     width: 25%;
 }
-
 /*Footer*/
-
-.footer {
-	font-size: 1.5em;
-	height: 50px;
+ .footer {
+     font-size: 1.5em;
+     height: 50px;
 }
-
 /*Modal*/
-.modal {
-	background-color: #000;
-	background-color: rgba(0,0,0,0.8);
-	display: none;
-	height: 100%;
-	left: 0;
-	overflow: auto;
-	position: fixed;
-	right: 0;
-	top: 0;
-	width: 100%;
-	z-index: 101;
+ .modal {
+     background-color: #000;
+     background-color: rgba(0,0,0,0.8);
+     display: none;
+     height: 100%;
+     left: 0;
+     overflow: auto;
+     position: fixed;
+     right: 0;
+     top: 0;
+     width: 100%;
+     z-index: 101;
 }
-
-.modal-body {
-	background-color: #3f3f3f;
-	border: 3px solid black;
-	margin: 20% auto;
-	width: 80%;
+ .modal-body {
+     background-color: #3f3f3f;
+     border: 3px solid black;
+     margin: 20% auto;
+     width: 80%;
 }
-
-.modal-results-container {
-	padding-top: 3.5em;
-	color: #fff;
+ .modal-results-container {
+     padding-top: 3.5em;
+     color: #fff;
 }
-
-.results {
-	display: block;
-	font-size: 2em;
-	margin: 20px;
-	padding: 18px 18px;
-	text-align: center;
-
+ .results {
+     display: block;
+     font-size: 2em;
+     margin: 20px;
+     padding: 18px 18px;
+     text-align: center;
 }
-
-.close {
-	color: #aaa;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
+ .close {
+     color: #aaa;
+     float: right;
+     font-size: 28px;
+     font-weight: bold;
 }
-
-.close:hover,
-.close:focus {
-	color: black;
-	cursor: pointer;
-	text-decoration: none;
+ .close:hover, .close:focus {
+     color: black;
+     cursor: pointer;
+     text-decoration: none;
 }
-
-.show-modal {
-	display: flex;
+ .show-modal {
+     display: flex;
 }
-
 /*Toggle classes to show cards when clicked.*/
-.show-card {
-	display: block;
+ .show-card {
+     display: block;
 }
-
-.hide-card {
-	display: none;
+ .hide-card {
+     display: none;
 }
-
 /*Tablet Portrait (600 - 899px)*/
-@media (min-width: 600px) and (max-width: 899px) {
-
-	body {
-		font-size: 1.4em;
-	}
-
-	table, tbody {
-		height: 740px;
-		width: 100%;
-	}
-
-	.grid {
-		display: grid;
-		grid-template-columns: repeat(1fr, 4);
-	}
-
-	.header,
-	.gameboard,
-	.footer {
-		grid-column: 1/4;
-	}
-
-	.labels {
-		padding-bottom: 20px;
-	}
-
+ @media (min-width: 600px) and (max-width: 899px) {
+     body {
+         font-size: 1.4em;
+    }
+     table, tbody {
+         height: 740px;
+         width: 100%;
+    }
+    /*My understanding is linters and validators still throw an error when using repeat*/
+     .grid {
+         display: grid;
+         grid-template-columns: repeat(4, 1fr);
+    }
+     .header, .gameboard, .footer {
+         grid-column: 1/4;
+    }
+     .labels {
+         padding-bottom: 20px;
+    }
 }
-
 /*Tablet Landscape (900 - 1199px)*/
-
-@media (min-width: 900px) and (max-width: 1199px) {
-
-	body {
-		font-size: 1em;
-		margin: 0;
-	}
-
-	table, tbody {
-		height: 580px;
-		padding: 5px 200px;
-	}
-
-	.modal-body {
-		margin: 17% auto;
-		width: 60%;
-	}
-
-	.modal-results-container {
-		padding-top: 0;
-	}
-
+ @media (min-width: 900px) and (max-width: 1199px) {
+     body {
+         font-size: 1em;
+         margin: 0;
+    }
+     table, tbody {
+         height: 580px;
+         padding: 5px 200px;
+    }
+     .modal-body {
+         margin: 17% auto;
+         width: 60%;
+    }
+     .modal-results-container {
+         padding-top: 0;
+    }
 }
-
 /*Laptop (1200 - 1800px)*/
-@media (min-width: 1200px) and (max-width: 1799px) {
-
-	body {
-		font-size: 1.2em;
-		margin: 0;
-	}
-
-	table, tbody {
-		height: 500px;
-		padding: 0px 300px;
-	}
-
-	.modal-body {
-		margin: 10% auto;
-		width: 60%;
-	}
-
-	.modal-results-container {
-		padding-top: 0;
-	}
-
+ @media (min-width: 1200px) and (max-width: 1799px) {
+     body {
+         font-size: 1.2em;
+         margin: 0;
+    }
+     table, tbody {
+         height: 500px;
+         padding: 0px 300px;
+    }
+     .modal-body {
+         margin: 10% auto;
+         width: 60%;
+    }
+     .modal-results-container {
+         padding-top: 0;
+    }
 }
-
 /*over 1800*/
-@media (min-width: 1800px) {
-
-	body {
-		font-size: 1.4em;
-	}
-
-	table, tbody {
-		height: 700px;
-		padding: 0px 450px;
-	}
-
-	.modal-body {
-		margin: 10% auto;
-		width: 40%;
-	}
-
-	.modal-results-container {
-		padding-top: 40px;
-	}
+ @media (min-width: 1800px) {
+     body {
+         font-size: 1.4em;
+    }
+     table, tbody {
+         height: 700px;
+         padding: 0px 450px;
+    }
+     .modal-body {
+         margin: 10% auto;
+         width: 40%;
+    }
+     .modal-results-container {
+         padding-top: 40px;
+    }
 }
